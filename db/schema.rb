@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204174703) do
+ActiveRecord::Schema.define(version: 20171205095434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listen_in_commons", force: :cascade do |t|
+    t.integer  "listen_user_1_id"
+    t.integer  "listen_user_2_id"
+    t.integer  "match_id_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["listen_user_1_id"], name: "index_listen_in_commons_on_listen_user_1_id", using: :btree
+    t.index ["listen_user_2_id"], name: "index_listen_in_commons_on_listen_user_2_id", using: :btree
+    t.index ["match_id_id"], name: "index_listen_in_commons_on_match_id_id", using: :btree
+  end
 
   create_table "listenings", force: :cascade do |t|
     t.integer  "user_id"
