@@ -2,8 +2,8 @@
 @import url("https://fonts.google.com/selection?selection.family=Oxygen:400,700|Quicksand:400,500,700");
 
 // Define fonts for body and headers
-$body-font: "Oxygen";
-$headers-font: "Quicksand";
+$body-font: "Oxygen", sans-serif;
+$headers-font: "Quicksand", sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
