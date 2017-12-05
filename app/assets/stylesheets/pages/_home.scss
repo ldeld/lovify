@@ -1,18 +1,19 @@
 // Specific CSS for your home-page
 .card-white {
-    background: white;
-    padding: 30px;
-    box-shadow: 1px 1px 2px #e7e7e7;
-    border-radius: 3px;
-    margin: 30px 25px;
-    width: 30rem;
-    min-height: 370px;
+  background: white;
+  padding: 30px;
+  box-shadow: 1px 1px 2px #e7e7e7;
+  border-radius: 3px;
+  margin: 30px 25px;
+  width: 30rem;
+  min-height: 370px;
 }
 
 .wrapper-grey {
-    background: #EDEFF0;
-    color: #4e4e4e;
-    margin-top: 20px;
-    display: flex;
-    text-align: center;
+  .title { border-bottom: 4px solid rgba(153, 55, 140, 0.8); margin: 10px 130px; padding-bottom: 25px; }
+  background: #F4F4F4;
+  color: #4e4e4e;
+  margin-top: 20px;
+  display: flex;
+  text-align: center;
 }
