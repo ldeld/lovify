@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205095434) do
+ActiveRecord::Schema.define(version: 20171205102721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,25 @@ ActiveRecord::Schema.define(version: 20171205095434) do
     t.index ["user_2_id"], name: "index_matches_on_user_2_id", using: :btree
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.integer  "match_id"
+    t.date     "date"
+    t.string   "title"
+    t.integer  "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_meetings_on_match_id", using: :btree
+    t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -70,9 +89,14 @@ ActiveRecord::Schema.define(version: 20171205095434) do
     t.string   "facebook_picture_url"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "gender"
+    t.boolean  "interested_in_men"
+    t.boolean  "interested_in_women"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "listenings", "users"
+  add_foreign_key "meetings", "matches"
+  add_foreign_key "meetings", "places"
 end
