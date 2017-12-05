@@ -12,7 +12,7 @@
     <%= render 'shared/navbar' unless action_name == 'home' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <%= render 'shared/footer' %>
+    <%= render 'shared/footer' unless action_name == 'home' %>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
