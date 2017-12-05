@@ -9,7 +9,8 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.6'
 gem 'redis'
-
+gem 'devise'
+gem 'rspotify'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -18,6 +19,8 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+
+gem "omniauth-oauth2", "1.3.1"
 
 group :development, :test do
   gem 'pry-byebug'
