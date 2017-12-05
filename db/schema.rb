@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20171205102137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "listen_in_commons", force: :cascade do |t|
+    t.integer  "listen_user_1_id"
+    t.integer  "listen_user_2_id"
+    t.integer  "match_id_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["listen_user_1_id"], name: "index_listen_in_commons_on_listen_user_1_id", using: :btree
+    t.index ["listen_user_2_id"], name: "index_listen_in_commons_on_listen_user_2_id", using: :btree
+    t.index ["match_id_id"], name: "index_listen_in_commons_on_match_id_id", using: :btree
+  end
+
   create_table "listenings", force: :cascade do |t|
     t.integer  "user_id"
     t.float    "ratio"
@@ -23,6 +34,26 @@ ActiveRecord::Schema.define(version: 20171205102137) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_listenings_on_user_id", using: :btree
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.float    "score"
+    t.integer  "user_1_id"
+    t.integer  "user_2_id"
+    t.integer  "asker"
+    t.integer  "receiver"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_1_id"], name: "index_matches_on_user_1_id", using: :btree
+    t.index ["user_2_id"], name: "index_matches_on_user_2_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
