@@ -5,4 +5,5 @@ class Match < ApplicationRecord
   validates :user_1, presence: true
   validates :user_2, presence: true
   validates :score, presence: true
+
 end
