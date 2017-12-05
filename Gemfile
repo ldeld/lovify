@@ -9,7 +9,6 @@ gem 'pg'
 gem 'puma'
 gem 'rails', '5.0.6'
 gem 'redis'
-gem 'devise'
 gem 'rspotify'
 
 gem 'autoprefixer-rails'
