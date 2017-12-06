@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206100700) do
+
+ActiveRecord::Schema.define(version: 20171206101354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "popularity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listen_in_commons", force: :cascade do |t|
     t.integer  "listen_user_1_id"
@@ -67,6 +75,24 @@ ActiveRecord::Schema.define(version: 20171206100700) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "track_listens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "track_id"
+    t.integer  "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["track_id"], name: "index_track_listens_on_track_id", using: :btree
+    t.index ["user_id"], name: "index_track_listens_on_user_id", using: :btree
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "popularity"
+    t.string   "album"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -100,4 +126,6 @@ ActiveRecord::Schema.define(version: 20171206100700) do
   add_foreign_key "listenings", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"
+  add_foreign_key "track_listens", "tracks"
+  add_foreign_key "track_listens", "users"
 end
