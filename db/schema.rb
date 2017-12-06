@@ -10,14 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206101354) do
+ActiveRecord::Schema.define(version: 20171206104556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
+  create_table "artist_genres", force: :cascade do |t|
+    t.integer  "artist_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_artist_genres_on_artist_id", using: :btree
+    t.index ["genre_id"], name: "index_artist_genres_on_genre_id", using: :btree
+  end
+
+  create_table "artist_listens", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.integer  "rank"
+    t.index ["artist_id"], name: "index_artist_listens_on_artist_id", using: :btree
+    t.index ["user_id"], name: "index_artist_listens_on_user_id", using: :btree
+  end
+
+  create_table "artists", force: :cascade do |t|
     t.string   "name"
     t.integer  "popularity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -117,10 +142,13 @@ ActiveRecord::Schema.define(version: 20171206101354) do
     t.string   "gender"
     t.boolean  "interested_in_men"
     t.boolean  "interested_in_women"
+    t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "artist_genres", "artists"
+  add_foreign_key "artist_genres", "genres"
   add_foreign_key "listenings", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"

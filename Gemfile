@@ -18,6 +18,8 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 gem "omniauth-oauth2", "1.3.1"
 

@@ -6,4 +6,9 @@ class UsersController < ApplicationController
     hash = spotify_user.to_hash
     redirect_to root_path
   end
+
+  def user_params
+  params.require(:user).permit(:name, :description, :photo, :photo_cache)
+end
+
 end
