@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206142858) do
+ActiveRecord::Schema.define(version: 20171206170310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20171206142858) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_artist_genres_on_artist_id", using: :btree
     t.index ["genre_id"], name: "index_artist_genres_on_genre_id", using: :btree
+  end
+
+  create_table "artist_listen_in_commons", force: :cascade do |t|
+    t.integer  "artist_listen_user_1_id"
+    t.integer  "artist_listen_user_2_id"
+    t.integer  "match_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["artist_listen_user_1_id"], name: "index_artist_listen_in_commons_on_artist_listen_user_1_id", using: :btree
+    t.index ["artist_listen_user_2_id"], name: "index_artist_listen_in_commons_on_artist_listen_user_2_id", using: :btree
+    t.index ["match_id"], name: "index_artist_listen_in_commons_on_match_id", using: :btree
   end
 
   create_table "artist_listens", force: :cascade do |t|
@@ -90,6 +101,17 @@ ActiveRecord::Schema.define(version: 20171206142858) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "track_listen_in_commons", force: :cascade do |t|
+    t.integer  "track_listen_user_1_id"
+    t.integer  "track_listen_user_2_id"
+    t.integer  "match_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["match_id"], name: "index_track_listen_in_commons_on_match_id", using: :btree
+    t.index ["track_listen_user_1_id"], name: "index_track_listen_in_commons_on_track_listen_user_1_id", using: :btree
+    t.index ["track_listen_user_2_id"], name: "index_track_listen_in_commons_on_track_listen_user_2_id", using: :btree
+  end
+
   create_table "track_listens", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "track_id"
@@ -142,10 +164,12 @@ ActiveRecord::Schema.define(version: 20171206142858) do
 
   add_foreign_key "artist_genres", "artists"
   add_foreign_key "artist_genres", "genres"
+  add_foreign_key "artist_listen_in_commons", "matches"
   add_foreign_key "artist_listens", "artists"
   add_foreign_key "artist_listens", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"
+  add_foreign_key "track_listen_in_commons", "matches"
   add_foreign_key "track_listens", "tracks"
   add_foreign_key "track_listens", "users"
 end

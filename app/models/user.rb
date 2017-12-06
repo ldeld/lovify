@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   serialize :spotify_auth, JSON
 
-  after_create :store_spotify_data
+  after_create :store_spotify_data, :compare_user
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -16,18 +16,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, omniauth_providers: [:spotify]
   # ----------------------------------------------------------------
-
-  def store_spotify_data
-    spotify_user = RSpotify::User.new(spotify_auth)
-    top_artists = spotify_user.top_artists(limit: 50)
-    ArtistsController.update_artist_list(top_artists)
-    ArtistListensController.create_artist_listens(top_artists, id)
-    # ----------------------------------------------------------
-    top_tracks = spotify_user.top_tracks(limit: 100)
-    TracksController.update_track_list(top_tracks)
-    TrackListensController.create_track_listens(top_tracks, id)
-  end
-
   def self.find_for_spotify_oauth(auth)
   mount_uploader :photo, PhotoUploader
 
@@ -50,4 +38,56 @@ class User < ApplicationRecord
 
     return user
   end
+
+  def store_spotify_data
+     spotify_user = RSpotify::User.new(spotify_auth)
+     top_artists = spotify_user.top_artists(limit: 50)
+
+     store_top_artists(top_artists)
+     store_artists_listens(top_artists)
+
+     top_tracks = spotify_user.top_tracks(limit: 100)
+     store_top_tracks(top_tracks)
+     store_tracks_listens(top_tracks)
+  end
+
+  def compare_user
+    User.where.not(id: id).each do |user|
+      Match.create(user_1_id: id, user_2_id: user.id, score: 0)
+    end
+  end
+
+  private
+
+  def store_top_artists(artists)
+    artists.each do |artist|
+      unless Artist.find_by(spotify_id: artist.id)
+        Artist.create(name: artist.name, popularity: artist.popularity, spotify_id: artist.id)
+      end
+    end
+  end
+
+  def store_artists_listens(artists)
+    artists.each_with_index do |artist, index|
+      saved_artist = Artist.find_by(spotify_id: artist.id)
+      ArtistListen.create(artist: saved_artist, user_id: id, rank: index + 1)
+    end
+  end
+
+  def store_top_tracks(tracks)
+    tracks.each do |track|
+      unless Track.find_by(spotify_id: track.id)
+        Track.create(name: track.name, popularity: track.popularity, spotify_id: track.id)
+      end
+    end
+  end
+
+  def store_tracks_listens(tracks)
+     tracks.each_with_index do |track, index|
+        saved_track = Track.find_by(spotify_id: track.id)
+        TrackListen.create(track: saved_track, user_id: id, rank: index + 1)
+     end
+  end
+
+
 end
