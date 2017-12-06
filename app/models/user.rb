@@ -19,7 +19,13 @@ class User < ApplicationRecord
 
   def store_spotify_data
     spotify_user = RSpotify::User.new(spotify_auth)
-    ArtistsController.update_artist_list(spotify_user.top_artists(limit: 50))
+    top_artists = spotify_user.top_artists(limit: 50)
+    ArtistsController.update_artist_list(top_artists)
+    ArtistListensController.create_artist_listens(top_artists, id)
+    # ----------------------------------------------------------
+    top_tracks = spotify_user.top_tracks(limit: 100)
+    TracksController.update_track_list(top_tracks)
+    TrackListensController.create_track_listens(top_tracks, id)
     binding.pry
   end
 
