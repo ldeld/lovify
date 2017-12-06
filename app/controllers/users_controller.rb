@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   def spotify
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     hash = spotify_user.to_hash
-    redirect_to edit_user_registration_path
+    redirect_to root_path
   end
 end
