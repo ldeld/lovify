@@ -1,22 +1,48 @@
-.banner {
-  color: white;
-  text-align: center;
-  height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
-  background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.banner h2 {
+.container-banner h2 {
   font-size: 50px;
   font-weight: lighter;
   opacity: 0.9;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
-.banner h3 {
+.container-banner h3 {
   font-size: 40px;
   color: rgb(255, 255, 255);
   opacity: 0.8;
   margin-bottom: 30px;
+}
+.content-banner {
+  z-index: 2;
+}
+
+.container-banner {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+
+    .slide {
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: opacity 1.5s ease-in-out;
+
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        opacity: 0;
+
+        &.show {
+            opacity: 1;
+        }
+    }
 }
