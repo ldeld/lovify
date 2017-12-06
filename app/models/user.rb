@@ -1,6 +1,8 @@
 require 'rspotify'
 
 class User < ApplicationRecord
+  serialize :spotify_auth, JSON
+
   has_many :artist_listens
   has_many :artists, through: :artist_listens
   has_many :track_listens
