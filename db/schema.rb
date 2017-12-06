@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206125240) do
+ActiveRecord::Schema.define(version: 20171206132852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20171206125240) do
   end
 
   create_table "artist_listens", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "artist_id"
     t.integer  "rank"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_artist_listens_on_artist_id", using: :btree
     t.index ["user_id"], name: "index_artist_listens_on_user_id", using: :btree
   end
@@ -56,16 +56,6 @@ ActiveRecord::Schema.define(version: 20171206125240) do
     t.index ["listen_user_1_id"], name: "index_listen_in_commons_on_listen_user_1_id", using: :btree
     t.index ["listen_user_2_id"], name: "index_listen_in_commons_on_listen_user_2_id", using: :btree
     t.index ["match_id_id"], name: "index_listen_in_commons_on_match_id_id", using: :btree
-  end
-
-  create_table "listenings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.float    "ratio"
-    t.string   "type"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_listenings_on_user_id", using: :btree
   end
 
   create_table "matches", force: :cascade do |t|
@@ -150,7 +140,8 @@ ActiveRecord::Schema.define(version: 20171206125240) do
 
   add_foreign_key "artist_genres", "artists"
   add_foreign_key "artist_genres", "genres"
-  add_foreign_key "listenings", "users"
+  add_foreign_key "artist_listens", "artists"
+  add_foreign_key "artist_listens", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"
   add_foreign_key "track_listens", "tracks"
