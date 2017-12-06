@@ -1,0 +1,2 @@
+class ArtistListen < ApplicationRecord
+end
