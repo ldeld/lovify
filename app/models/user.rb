@@ -3,6 +3,8 @@ require 'rspotify'
 class User < ApplicationRecord
   has_many :artist_listens
   has_many :artists, through: :artist_listens
+  has_many :track_listens
+  has_many :tracks, through: :track_listens
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -12,7 +14,7 @@ class User < ApplicationRecord
 
   def self.find_for_spotify_oauth(auth)
   mount_uploader :photo, PhotoUploader
-    
+
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email)
     user_params[:token] = auth.credentials.token
