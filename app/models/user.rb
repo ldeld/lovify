@@ -26,7 +26,6 @@ class User < ApplicationRecord
     top_tracks = spotify_user.top_tracks(limit: 100)
     TracksController.update_track_list(top_tracks)
     TrackListensController.create_track_listens(top_tracks, id)
-    binding.pry
   end
 
   def self.find_for_spotify_oauth(auth)
