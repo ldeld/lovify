@@ -1,6 +1,8 @@
 require 'rspotify'
 
 class User < ApplicationRecord
+  has_many :artist_listens
+  has_many :artists, through: :artist_listens
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
