@@ -2,6 +2,8 @@ class Match < ApplicationRecord
   belongs_to :user_1, :class_name => "User"
   belongs_to :user_2, :class_name => "User"
   has_many :meetings
+  has_many :artist_listen_in_commons
+  has_many :track_listen_in_commons
 
   validates :user_1, presence: true
   validates :user_2, presence: true

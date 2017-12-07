@@ -1,0 +1,15 @@
+.card {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.hide-content {
+  display: none;
+  transition: all 0.5s ease-out;
+}
+
+.show-content {
+  transition: all 0.5s ease-out;
+}

@@ -1,6 +1,35 @@
-<% @matches.each do |match| %>
-  <% binding.pry %>
-  <%= match.user_1.first_name %>
-  <%= match.user_2.first_name %>
-  <p>------------------------- </p>
-<% end %>
+<% binding.pry %>
+<div class="container">
+  <div class="row">
+    <% @matches.each do |match| %>
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="card">
+        <% match.user_1 == current_user ? user = match.user_2 : user = match.user_1 %>
+        <h2>You matched with <%= user.first_name %></h2>
+        <p>Matchistics: <%= match.score %></p>
+
+        <h4> You have <%= match.artist_listen_in_commons.length %> artists in common </h4>
+        <% if match.artist_listen_in_commons.length < 5 %>
+          <% match.artist_listen_in_commons.reverse.each do |a_in_common| %>
+            <p class="show-content"><%= a_in_common.artist.name %></p>
+          <% end %>
+        <% else %>
+          <% match.artist_listen_in_commons.reverse.first(5).each do |a_in_common| %>
+            <p class="show-content"><%= a_in_common.artist.name %></p>
+          <% end %>
+          <% match.artist_listen_in_commons.reverse.drop(5).each do |a_in_common| %>
+            <p class="hide-content"><%= a_in_common.artist.name %></p>
+          <% end %>
+          <a href="#" id="show-artists">Show all</a>
+        <% end %>
+        <% unless match.track_listen_in_commons.empty? %>
+          <h4> You both like the following tracks: </h4>
+          <% match.track_listen_in_commons.each do |tr_in_common| %>
+            <p><%= tr_in_common.track.name %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
