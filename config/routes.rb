@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/auth/spotify/callback', to: 'users#spotify'
   post '/users/auth/spotify/callback', to: 'users#spotify'
-
+  resources :matches
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
