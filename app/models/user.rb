@@ -55,7 +55,7 @@ class User < ApplicationRecord
 
   def compare_user
     User.where.not(id: id).each do |user|
-      Match.create(user_1_id: id, user_2_id: user.id, score: 0)
+      Match.create(user_1_id: id, user_2_id: user.id, score: 0, hide: false)
     end
   end
 
