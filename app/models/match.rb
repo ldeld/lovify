@@ -12,6 +12,8 @@ class Match < ApplicationRecord
   def calculate_score
     match_user_artists
     match_user_tracks
+    binding.pry
+    self.save
   end
 
   private
