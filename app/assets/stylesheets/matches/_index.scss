@@ -3,10 +3,16 @@
   padding: 10px;
   border-radius: 5px;
   margin: 10px;
+  height: 85vh;
+}
+
+#more-info .card {
+  h4 { padding-top: 10px; }
 }
 
 .profile-picture {
-  width: 400px;
+  height: 50%;
+  margin: 0 auto;
 }
 
 .hidden {
@@ -20,4 +26,8 @@
   opacity: 1;
   max-height: 10000px;
   transition: all 0.5s;
+}
+
+.scrollable {
+  overflow-y: scroll;
 }
