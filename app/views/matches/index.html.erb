@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% @matches.each do |match| %>
+    <% match = @matches.first %>
     <div class="col-xs-6 col-xs-offset-3" id="profile-card">
       <div class="card">
         <% match.user_1 == current_user ? user = match.user_2 : user = match.user_1 %>
@@ -51,6 +51,5 @@
         <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
