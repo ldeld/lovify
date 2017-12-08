@@ -3,21 +3,21 @@ const showMoreInfo = document.getElementById("show-more-info");
 const profileCard = document.getElementById("profile-card");
 const infoCard = document.getElementById("more-info")
 
+if (showFullList) {
+  showFullList.addEventListener("click", (event)=> {
+    event.preventDefault();
+    hiddenArtists = document.getElementById("artist-list")
+    hiddenArtists.classList.toggle("hidden");
+    hiddenArtists.classList.toggle("show-content");
 
-showFullList.addEventListener("click", (event)=> {
-  event.preventDefault();
-  hiddenArtists = document.getElementById("artist-list")
-  hiddenArtists.classList.toggle("hidden");
-  hiddenArtists.classList.toggle("show-content");
-
-  hiddenTracks = document.getElementById("track-list")
-  hiddenTracks.classList.toggle("hidden");
-  hiddenTracks.classList.toggle("show-content");
+    hiddenTracks = document.getElementById("track-list")
+    hiddenTracks.classList.toggle("hidden");
+    hiddenTracks.classList.toggle("show-content");
 
 
-  showFullList.classList.add("hidden");
-});
-
+    showFullList.classList.add("hidden");
+  });
+};
 
 showMoreInfo.addEventListener("click", (event)=> {
   event.preventDefault();
