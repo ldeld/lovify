@@ -1,7 +1,7 @@
-const showFullList = document.getElementById("show-full-list");
-const showMoreInfo = document.getElementById("show-more-info");
-const profileCard = document.getElementById("profile-card");
-const infoCard = document.getElementById("more-info")
+var showFullList = document.getElementById("show-full-list");
+var showMoreInfo = document.getElementById("show-more-info");
+var profileCard = document.getElementById("profile-card");
+var infoCard = document.getElementById("more-info")
 
 if (showFullList) {
   showFullList.addEventListener("click", (event)=> {

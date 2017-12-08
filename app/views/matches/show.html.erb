@@ -35,7 +35,6 @@
             <% end %>
           </div>
         <% end %>
-        <br>
         <% unless @match.track_listen_in_commons.empty? %>
           <h4>Tracks you both like: </h4>
           <% if @match.track_listen_in_commons.length < 5 %>
@@ -52,10 +51,12 @@
               <% end %>
             </div>
             <a href="#" id="show-full-list">Show all</a>
-            <%= link_to("No", match_path(@match, {match:{hide: true}}), method: :put)%>
-            <%= link_to("Yes", match_path(@match, {match:{asker: @user.id}}), method: :put)%>
           <% end %>
         <% end %>
+        <div class="date-btns">
+          <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-danger" %>
+          <%= link_to "Ask out!", match_path(@match, {match:{asker: @user.id}}), method: :put, class: "btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>
