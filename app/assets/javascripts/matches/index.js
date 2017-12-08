@@ -21,7 +21,6 @@ showFullList.addEventListener("click", (event)=> {
 
 showMoreInfo.addEventListener("click", (event)=> {
   event.preventDefault();
-  console.log("clicked");
   infoCard.classList.remove("hidden");
   profileCard.classList.remove("col-xs-offset-3");
   showMoreInfo.classList.add("hidden")
