@@ -59,6 +59,16 @@ ActiveRecord::Schema.define(version: 20171206142858) do
     t.index ["match_id_id"], name: "index_listen_in_commons_on_match_id_id", using: :btree
   end
 
+  create_table "listenings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.float    "ratio"
+    t.string   "type"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listenings_on_user_id", using: :btree
+  end
+
   create_table "matches", force: :cascade do |t|
     t.float    "score"
     t.integer  "user_1_id"
@@ -144,6 +154,7 @@ ActiveRecord::Schema.define(version: 20171206142858) do
   add_foreign_key "artist_genres", "genres"
   add_foreign_key "artist_listens", "artists"
   add_foreign_key "artist_listens", "users"
+  add_foreign_key "listenings", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"
   add_foreign_key "track_listens", "tracks"
