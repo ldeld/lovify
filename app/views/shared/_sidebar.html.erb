@@ -1,0 +1,40 @@
+<div class="sidebar-wagon">
+  <!-- Logo -->
+
+
+      <div class="sidebar-logo">
+        <%= link_to root_path, id: "logo-container" do %>
+          <%= image_tag "logo.png", height: 50 %>
+          <p id="logo-name">Lovify</p>
+        <% end %>
+      </div>
+
+      <div class="border"></div>
+
+    <div class="sidebar-menu">
+      <div class="sidebar-avatar">
+        <%= cl_image_tag current_user.photo, height: 35, width: 35, crop: :fill, class: "avatar", id: "navbar-wagon-menu" %>
+        <div id="user-name-sidebar">
+          <%= current_user.first_name %>
+        </div>
+      </div>
+    <div class="border"></div>
+    <ul class="list-unstyled">
+      <li><%= link_to "Profile", "#", class: "sidebar-link" %></li>
+        <div class="border-light"></div>
+      <li><%= link_to "Messages", "#", class: "sidebar-link" %></li>
+        <div class="border-light"></div>
+      <li><%= link_to "Dates", "#", class: "sidebar-link" %></li>
+      <div class="border-light"></div>
+      <li><div class="sidebar-link"><%= link_to destroy_user_session_path, method: :delete do %>
+      <%= t(".sign_out", default: "Log out") %></div>
+      <% end %></li>
+    </ul>
+    <div class="border-light"></div>
+  </div>
+
+</div>
+
+
+
+

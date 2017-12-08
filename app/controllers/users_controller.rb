@@ -7,8 +7,21 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def profile
+  end
+
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    @user.update_attributes(user_params)
+    redirect_to root_path
+  end
+
   def user_params
-  params.require(:user).permit(:name, :description, :photo, :photo_cache)
-end
+    params.require(:user).permit(:first_name, :description, :photo, :photo_cache)
+  end
 
 end

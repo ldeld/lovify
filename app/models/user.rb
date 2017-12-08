@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   after_create :store_spotify_data, :compare_user
 
+  mount_uploader :photo, PhotoUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -19,7 +21,7 @@ class User < ApplicationRecord
           :omniauthable, omniauth_providers: [:spotify]
   # ----------------------------------------------------------------
   def self.find_for_spotify_oauth(auth)
-  mount_uploader :photo, PhotoUploader
+
 
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email)

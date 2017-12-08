@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20171207153357) do
   add_foreign_key "artist_listen_in_commons", "matches"
   add_foreign_key "artist_listens", "artists"
   add_foreign_key "artist_listens", "users"
+  add_foreign_key "listenings", "users"
   add_foreign_key "meetings", "matches"
   add_foreign_key "meetings", "places"
   add_foreign_key "track_listen_in_commons", "matches"
