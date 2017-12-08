@@ -33,11 +33,11 @@
 #logo-name{
   display: inline;
   text-decoration: none;
-  color: black;
-  opacity: 0.5;
+  color: $purple;
+  opacity: 1;
   &:hover {
-    color: black;
-    opacity: 1;
+    color: $purple;
+    opacity: 0.5;
   };
 }
 
