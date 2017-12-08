@@ -5,13 +5,17 @@
       <div class="card">
         <% match.user_1 == current_user ? user = match.user_2 : user = match.user_1 %>
         <h2>You matched with <%= user.first_name %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/random" class="profile-picture">
-        <h3>Matchistics: <%= match.score %></h3>
-        <h4> You have <%= match.artist_listen_in_commons.length %> artists in common </h4>
-        <% unless match.track_listen_in_commons.empty? %>
-          <h4>And there are <%= match.track_listen_in_commons.length %> tracks you both like! </h4>
-        <% end %>
-        <%= link_to "See full details", "#", class: "btn btn-primary", id: "show-more-info" %>
+        <div class="img-container">
+          <img src="https://kitt.lewagon.com/placeholder/users/random" class="profile-picture">
+        </div>
+        <div class="matchistics">
+          <h3>Matchistics: <%= match.score %></h3>
+          <h4> You have <%= match.artist_listen_in_commons.length %> artists in common </h4>
+          <% unless match.track_listen_in_commons.empty? %>
+            <h4>And there are <%= match.track_listen_in_commons.length %> tracks you both like! </h4>
+          <% end %>
+          <%= link_to "See full details", "#", class: "btn btn-primary", id: "show-more-info" %>
+        </div>
       </div>
     </div>
     <!-- This is the hidden "more info" card-->
