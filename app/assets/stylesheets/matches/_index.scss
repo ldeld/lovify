@@ -1,33 +1,44 @@
-.card {
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
-  height: 85vh;
+.inbox {
+  padding: 0px 20px 0px 20px;
+  list-style: none;
+  border:1px solid #dce0e0;
+  background-color: #FDFDFD;
 }
 
-#more-info .card {
-  h4 { padding-top: 10px; }
+.message {
+  padding:20px 20px 20px 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid #eeeeee;
 }
 
-.profile-picture {
-  height: 50%;
-  margin: 0 auto;
+.message-name{
+  position:absolute;
+  padding-left:110px;
+  padding-bottom:20px;
+  min-width: auto;
+  h3{
+    font-size: 13px;
+    line-height:9px;
+    margin-bottom: 0px;
+  };
+  p{
+    color:#777;
+    font-size: 13px;
+    font-weight: lighter;
+    line-height:7px;
+    opacity: 0.6;
+  };
 }
 
-.hidden {
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.5s;
+.message-status{
+  padding-top:15px;
+  font-size: 14px;
+  font-weight: bold;
+  min-width: 60px;
 }
 
-.show-content {
-  opacity: 1;
-  max-height: 10000px;
-  transition: all 0.5s;
-}
-
-.scrollable {
-  overflow-y: scroll;
+.container-inbox{
+  margin-left: 20%;
 }
