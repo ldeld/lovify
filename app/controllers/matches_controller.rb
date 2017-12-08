@@ -18,19 +18,20 @@ class MatchesController < ApplicationController
   def ask_out
     @match.asker = current_user.email
     @match.save
-    redirect_to match_path(Match.all.where(hide: false).first.id)
   end
 
   def not_interested
     @match.hide = true
     @match.save
-    redirect_to match_path(Match.all.where(hide: false).first.id)
   end
 
   def update
     @user = current_user
     @match.update_attributes(match_params)
-    redirect_to match_path(Match.all.where(hide: false).first.id)
+    redirect_match
+  end
+
+  def no_matches
   end
 
   private
@@ -43,4 +44,11 @@ class MatchesController < ApplicationController
     params.require(:match).permit(:hide, :asker)
   end
 
+  def redirect_match
+    if user_matches.empty?
+      redirect_to matches_no_matches_path
+    else
+      redirect_to match_path(Match.all.where(hide: false).first.id)
+    end
+  end
 end
