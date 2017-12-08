@@ -20,15 +20,16 @@
       </div>
     <div class="border"></div>
     <ul class="list-unstyled">
-      <li><%= link_to "Profile", "#", class: "sidebar-link" %></li>
+      <li><%= link_to "Profile", "/profile", class: "sidebar-link" %></li>
         <div class="border-light"></div>
       <li><%= link_to "Messages", "#", class: "sidebar-link" %></li>
         <div class="border-light"></div>
-      <li><%= link_to "Dates", "#", class: "sidebar-link" %></li>
+      <li><%= link_to "Dates", "/matches", class: "sidebar-link" %></li>
       <div class="border-light"></div>
-      <li><div class="sidebar-link"><%= link_to destroy_user_session_path, method: :delete do %>
-      <%= t(".sign_out", default: "Log out") %></div>
-      <% end %></li>
+      <li>
+        <div class="sidebar-link"><%= link_to destroy_user_session_path, method: :delete do %>
+      <%= t(".sign_out", default: "Log out") %>
+      <% end %></div></li>
     </ul>
     <div class="border-light"></div>
   </div>

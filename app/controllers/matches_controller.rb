@@ -8,7 +8,8 @@ class MatchesController < ApplicationController
   end
 
   def index
-    @matches = user_matches
+    @matches_done = Match.where(asker: current_user.id).where.not(receiver: nil) + Match.where(receiver: current_user.id).where.not(asker: nil)
+    @match_requests = Match.where.not(asker: nil).where.not(asker: current_user.id).where(receiver: nil)
   end
 
   def show

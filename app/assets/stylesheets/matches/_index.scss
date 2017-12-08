@@ -1,1 +1,47 @@
+.inbox {
+  padding: 0px 20px 0px 20px;
+  list-style: none;
+  border:1px solid #dce0e0;
+  background-color: #FDFDFD;
+}
+
+.message {
+  padding:20px 20px 20px 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom:1px solid #eeeeee;
+}
+
+.message-name{
+  position:absolute;
+  padding-left:110px;
+  padding-bottom:20px;
+  min-width: auto;
+  h3{
+    font-size: 13px;
+    line-height:9px;
+    margin-bottom: 0px;
+  };
+  p{
+    color:#777;
+    font-size: 13px;
+    font-weight: lighter;
+    line-height:7px;
+    opacity: 0.6;
+  };
+}
+
+.message-status{
+  padding-top:15px;
+  font-size: 14px;
+  font-weight: bold;
+  min-width: 60px;
+}
+
+.container-inbox{
+  margin-left: 20%;
+}
+
 @import 'show'
+
