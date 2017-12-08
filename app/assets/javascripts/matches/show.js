@@ -4,7 +4,7 @@ var profileCard = document.getElementById("profile-card");
 var infoCard = document.getElementById("more-info")
 
 if (showFullList) {
-  showFullList.addEventListener("click", (event)=> {
+  showFullList.addEventListener("click", function(event) {
     event.preventDefault();
     hiddenArtists = document.getElementById("artist-list")
     hiddenArtists.classList.toggle("hidden");
@@ -19,7 +19,7 @@ if (showFullList) {
   });
 };
 
-showMoreInfo.addEventListener("click", (event)=> {
+showMoreInfo.addEventListener("click", function(event) {
   event.preventDefault();
   infoCard.classList.remove("hidden");
   profileCard.classList.remove("col-xs-offset-3");
