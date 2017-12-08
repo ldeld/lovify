@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' unless action_name == 'home' %>
+    <%= render 'shared/sidebar' unless action_name == 'home' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' unless action_name == 'home' %>
