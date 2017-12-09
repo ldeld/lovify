@@ -1,3 +1,7 @@
+.body-devise{
+  background-color: #212121;
+}
+
 h2 {
   text-align: center;
   margin: 30px;
@@ -8,10 +12,7 @@ h2 {
 }
 
 .container-form-login {
-  margin: 50px 0px;
-  padding-bottom: 50px;
-  background-color: white;
-  padding: 20px;
+  margin-left: 15%;
 }
 
 .link-edit{
@@ -45,6 +46,7 @@ a:hover {
 .form-style-10{
     width: 600px;
     padding:30px;
+    margin-left: 10px;
     margin:40px auto;
     background: #FFF;
     border-radius: 10px;
