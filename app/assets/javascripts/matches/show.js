@@ -1,4 +1,5 @@
 // var showFullList = document.getElementById("show-full-list");
+
 var showMoreInfo = document.getElementById("show-more-info");
 var profileCard = document.getElementById("profile-card");
 var card = document.querySelector(".card");
@@ -31,7 +32,9 @@ var card = document.querySelector(".card");
 function triggerIn() {
   card.setAttribute("class", "card animated slideOutLeft");
   document.querySelector("#off").setAttribute("id", "on");
+
   showMoreInfo.classList.add("hidden")
+
   var x = document.createElement("div");
   x.setAttribute("class", "fade");
   document.querySelector(".wrapper").appendChild(x);
