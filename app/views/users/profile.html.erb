@@ -1,9 +1,66 @@
+<div class="body body-profile">
+
+<div class="container container-profile">
+  <div class="header-image"></div>
+  <div class="content">
+   <aside class="aside-01">
+    <div class="profile">
+        <%= cl_image_tag current_user.photo, class: "image" %>
+      <h4>Hi, <%= current_user.first_name %> !</h4>
+
+      <tr>
+        <div class="about">
+          <article>
+            Description: <%= current_user.description %>
+          </article>
+        </div>
+        <div class="edit-profile">
+           <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
+        </div>
+    </div>
+  </aside>
+
+
+
+  <aside class="aside-02">
+  <div class="row" >
+    <div class="profile-header">
+      <h4> Top artists Listens</h4>
+    </div>
+      <ul class="profile-content">
+        <%current_user.artists.first(5).each do |artsist| %>
+          <li><%= artsist.name %></li>
+        <% end %>
+      </ul>
+    <div class="profile-header ">
+      <h4> Top tracks Listens</h4>
+    </div>
+      <ul class="profile-content">
+      <%current_user.tracks.first(10).each do |track| %>
+        <li><%= track.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  </aside>
+ </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!--
 <div class="body body-home">
 <div class="container-user">
   <div class="row" >
     <div class= "header-show">
        <div class="col-xs-3 col-sm-3">
-        <%= cl_image_tag current_user.photo, height: 150, width: 170, crop: :fill, gravity: :face %>
+
       </div>
 
       <div class="col-xs-3 col-sm-6">
@@ -53,12 +110,13 @@
     <div class="profile-content ">
       <ul>
         <li> First_name: <%= current_user.first_name %> </li>
-        <!-- <li> Gender: <%= current_user.gender %> </li> -->
+       <li> Gender: <%= current_user.gender %> </li>
         <li> Description: <%= current_user.description %> </li>
-        <!-- <li> Interested in : <%= current_user.description %> </li> -->
+       <li> Interested in : <%= current_user.description %> </li>
       </ul>
     </div>
   </div>
 
 </div>
-</div>
+
+ -->
