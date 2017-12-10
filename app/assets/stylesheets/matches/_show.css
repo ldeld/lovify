@@ -1,26 +1,109 @@
-.card {
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
-  height: 85vh;
-  h2 { text-align: left; }
+.container-match-show {
+  position: relative;
+  overflow: hidden;
+  height: 86vh;
+  width: 1183px;
+  background: $grey-back;
+  display: flex;
+  align-items: center;
+  margin-left: 17%;
+}
+.flybox-wrap {
+  position: absolute;
+  top: 0%;
+  right: 0;
+  z-index: 2;
+  padding: 60px;
+  padding-top: 13px;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+    .btn {
+      transform: translateY(1200%);
+      display: inline-block;
+  }
+
+}
+.flybox-wrap#off {
+  -webkit-transform:  translateX(100%);
+  -ms-transform:  translateX(100%);
+  -o-transform:  translateX(100%);
+  transform:  translateX(100%);
+}
+.flybox-wrap#on {
+  -webkit-transform:  translateX(0);
+  -ms-transform:  translateX(0);
+  -o-transform:  translateX(0);
+  transform:  translateX(0);
 }
 
-#more-info .card {
-  h4 { padding-top: 10px; }
+.fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 0vh;
+  background: rgba(0,0,0,0.7);
+  z-index: 1;
+}
+
+.animated {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+
+@keyframes slideOutLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-45%, 0, 0);
+  }
+}
+
+
+.slideOutLeft {
+  animation-name: slideOutLeft;
+}
+
+
+#profile-card {
+  position: absolute;
+  top: 2%;
+  left: 26%;
+}
+
+.card {
+  width: 500px;
+  background-color: #d6d6d6;
+  padding: 5px;
+  border-radius: 5px;
+  height: 83vh;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(70,70,70,0.7);
+  p {
+    margin-left: 20px;
+    text-align: left;
+  }
+}
+
+.flybox-wrap .card {
+  padding-top: 25px;
+}
+
+
+#show-more-info {
+  margin-top: 15px;
 }
 
 .profile-picture {
   width: 300px;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(70,70,70,0.5);
 }
 
-.img-container {
-  display: flex;
-  align-items: center;
-}
 
 .matchistics {
   padding: 0 40px;
@@ -39,6 +122,27 @@
   transition: all 0.5s;
 }
 
-.scrollable {
-  overflow-y: scroll;
+.btn-not {
+  font-size: 13px;
+  color: white;
+  background-color: black;
+  opacity: 0.6;
+    &:hover {
+      color: white;
+      background-color: black;
+      opacity: 0.8;
+    }
+}
+
+
+.btn-date {
+  font-size: 13px;
+  color: white;
+  background-color: #a0067f;
+  opacity: 0.7;
+    &:hover {
+      color: white;
+      background-color: #a0067f;
+      opacity: 1;
+    }
 }
