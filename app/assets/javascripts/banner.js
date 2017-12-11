@@ -1,23 +1,30 @@
 function cycleBackgrounds() {
-    var index = 0;
+  var index = 0;
 
-    $imageEls = $('.container .slide'); // Get the images to be cycled.
+  $imageEls = $('.container .slide'); // Get the images to be cycled.
 
-    setInterval(function () {
-        // Get the next index.  If at end, restart to the beginning.
-        index = index + 1 < $imageEls.length ? index + 1 : 0;
+  setInterval(function () {
+      // Get the next index.  If at end, restart to the beginning.
+      index = index + 1 < $imageEls.length ? index + 1 : 0;
 
-        // Show the next
-        $imageEls.eq(index).addClass('show');
+      // Show the next
+      $imageEls.eq(index).addClass('show');
 
-        // Hide the previous
-        $imageEls.eq(index - 1).removeClass('show');
-    }, 4000);
+      // Hide the previous
+      $imageEls.eq(index - 1).removeClass('show');
+  }, 4000);
 };
 
- $(function() {
-    $('.scroll-down').click (function() {
-      $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
-      return false;
-    });
+$(function() {
+  $('.scroll-down').click (function() {
+    $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
+    return false;
   });
+});
+
+var scrollIcon = document.querySelector(".scroll-down")
+
+document.addEventListener("scroll", function(event) {
+  once: true;
+  scrollIcon.style.opacity = 0;
+})
