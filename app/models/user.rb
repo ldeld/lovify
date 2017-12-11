@@ -45,8 +45,8 @@ class User < ApplicationRecord
 
   def store_spotify_data
      spotify_user = RSpotify::User.new(spotify_auth)
-     top_artists = spotify_user.top_artists(limit: 50)
 
+     top_artists = spotify_user.top_artists(limit: 50)
      store_top_artists(top_artists)
      store_artists_listens(top_artists)
 
@@ -67,6 +67,7 @@ class User < ApplicationRecord
     artists.each do |artist|
       unless Artist.find_by(spotify_id: artist.id)
         Artist.create(name: artist.name, popularity: artist.popularity, spotify_id: artist.id)
+        store_genres(artist)
       end
     end
   end
@@ -93,5 +94,15 @@ class User < ApplicationRecord
      end
   end
 
+  def store_genres(artist)
+    artist.genres.each do |genre|
+      g = Genre.find_by(name: genre)
+      unless g
+        g = Genre.create!(name: genre)
+      end
+      ArtistGenre.create!(artist: Artist.find_by(spotify_id: artist.id), genre: g)
+      # binding.pry
+    end
+  end
 
 end
