@@ -36,6 +36,14 @@ class MatchesController < ApplicationController
   def no_matches
   end
 
+  def redirect_match
+    if user_matches.empty?
+      redirect_to matches_no_matches_path
+    else
+      redirect_to match_path(user_matches.first.id)
+    end
+  end
+
   private
 
   def set_match
@@ -44,13 +52,5 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(:hide, :asker)
-  end
-
-  def redirect_match
-    if user_matches.empty?
-      redirect_to matches_no_matches_path
-    else
-      redirect_to match_path(Match.all.where(hide: false).first.id)
-    end
   end
 end
