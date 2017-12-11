@@ -19,7 +19,7 @@
   -o-transition: all 1s ease;
   transition: all 1s ease;
     .btn {
-     /* transform: translateY(1200%);*/
+      /*transform: translateY(1200%);*/
       display: inline-block;
   }
 

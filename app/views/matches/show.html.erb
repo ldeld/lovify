@@ -8,7 +8,11 @@
         <% @match.user_1 == current_user ? user = @match.user_2 : user = @match.user_1 %>
         <h2>You matched with <%= user.first_name %></h2>
         <div class="img-container">
-          <img src="https://kitt.lewagon.com/placeholder/users/random" class="profile-picture">
+          <% if User.find(user).photo.path.nil? %>
+            <img src=<%= User.find(user).spotify_photo %> class="profile-picture" >
+          <% else %>
+            <%= cl_image_tag User.find(user).photo, class: "profile-picture" %>
+          <% end %>
         </div>
         <div class="matchistics">
           <h3>Matchistics: <%= @match.score %></h3>
