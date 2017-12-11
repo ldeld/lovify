@@ -67,7 +67,12 @@
       <% end %>
       <div class="date-btns">
         <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
-        <%= link_to "Ask out!", match_path(@match, {match:{asker: @user.id}}), method: :put, class: "btn btn-date" %>
+        <% if @match.asker.nil? %>
+          <%= link_to "Ask out!", match_path(@match, {match:{asker: @user.id}}), method: :put, class: "btn btn-date" %>
+        <% else %>
+          <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn btn-date" %>
+        <% end %>
+
 <!--         </div>
       </div>
       </div> -->
