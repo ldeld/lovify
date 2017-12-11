@@ -5,7 +5,11 @@
   <div class="content">
    <aside class="aside-01">
     <div class="profile">
-        <%= cl_image_tag current_user.photo, class: "image" %>
+        <% if current_user.photo.path.nil? || current_user.photo.nil? %>
+          <img src=<%= current_user.spotify_photo %> class="image" >
+        <% else %>
+          <%= cl_image_tag current_user.photo, crop: :fill, class: "image" %>
+        <% end %>
       <h4>Hi, <%= current_user.first_name %> !</h4>
 
       <tr>
