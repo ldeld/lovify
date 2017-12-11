@@ -37,6 +37,7 @@ class User < ApplicationRecord
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.spotify_auth = auth
+      auth.info.slice(:images).images.first.nil? ? user.spotify_photo = "https://bedrosian.usc.edu/wp-content/themes/bedrosian-center-2015/images/avatar-default.svg" : user.spotify_photo = auth.info.slice(:images).images.first.url
       user.save
     end
 
@@ -45,8 +46,8 @@ class User < ApplicationRecord
 
   def store_spotify_data
      spotify_user = RSpotify::User.new(spotify_auth)
-     top_artists = spotify_user.top_artists(limit: 50)
 
+     top_artists = spotify_user.top_artists(limit: 50)
      store_top_artists(top_artists)
      store_artists_listens(top_artists)
 
@@ -67,6 +68,7 @@ class User < ApplicationRecord
     artists.each do |artist|
       unless Artist.find_by(spotify_id: artist.id)
         Artist.create(name: artist.name, popularity: artist.popularity, spotify_id: artist.id)
+        store_genres(artist)
       end
     end
   end
@@ -93,5 +95,14 @@ class User < ApplicationRecord
      end
   end
 
+  def store_genres(artist)
+    artist.genres.each do |genre|
+      g = Genre.find_by(name: genre)
+      unless g
+        g = Genre.create!(name: genre)
+      end
+      ArtistGenre.create!(artist: Artist.find_by(spotify_id: artist.id), genre: g)
+    end
+  end
 
 end
