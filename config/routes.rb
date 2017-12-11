@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :matches
   root to: 'pages#home'
   get '/profile', to: 'users#profile'
-  get "/next-match", to: "matches#redirect_match"
+  get '/next-match', to: "matches#redirect_match"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
