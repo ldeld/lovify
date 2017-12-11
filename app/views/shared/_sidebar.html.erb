@@ -13,7 +13,7 @@
 
     <div class="sidebar-menu">
       <div class="sidebar-avatar">
-        <% if current_user.photo.path.nil? %>
+        <% if current_user.photo.path.nil? || current_user.photo.nil? %>
           <img src=<%= User.find(current_user).spotify_photo %> class="avatar" >
         <% else %>
           <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar", id: "navbar-wagon-menu" %>
@@ -25,6 +25,8 @@
     <div class="border"></div>
     <ul class="list-unstyled">
       <li><%= link_to "Profile", "/profile", class: "sidebar-link" %></li>
+        <div class="border-light"></div>
+      <li><%= link_to "Start matching", "/matches/show", class: "sidebar-link" %></li>
         <div class="border-light"></div>
       <li><%= link_to "Messages", "#", class: "sidebar-link" %></li>
         <div class="border-light"></div>
