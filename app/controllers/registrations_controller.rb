@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    '/next-match'
+    profile_path
   end
 
   def account_update_params
