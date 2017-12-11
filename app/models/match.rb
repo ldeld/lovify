@@ -14,6 +14,7 @@ class Match < ApplicationRecord
   def calculate_score
     match_user_artists
     match_user_tracks
+    self.score = (score * 1000).round / 100
     self.save
   end
 
@@ -26,7 +27,7 @@ class Match < ApplicationRecord
         common.artist_listen_user_2 = user_2.artist_listens.where(artist: artist_listen.artist).first
         common.match = self
         common.save
-        self.score += 1
+        self.score += (10 / (artist_listen.rank + user_2.artist_listens.where(artist: artist_listen.artist).first.rank)) * (Math.exp(- 0.8 - (artist_listen.artist.popularity / 100 )) + 1)
       end
     end
   end
@@ -38,7 +39,8 @@ class Match < ApplicationRecord
         common.track_listen_user_2 = user_2.track_listens.where(track: track_listen.track).first
         common.match = self
         common.save
-        self.score += 1
+        self.score += 0.8 * (10 / (track_listen.rank + user_2.track_listens.where(track: track_listen.track).first.rank)) * (Math.exp(- 0.8 - (track_listen.track.popularity / 100 )) + 1)
+
       end
     end
   end
