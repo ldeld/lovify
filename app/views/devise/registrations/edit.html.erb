@@ -2,57 +2,52 @@
   <div class="container-form-login">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="form-style-10">
+            <h1>Edit your profile</h1>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= f.error_notification %>
+                <div class="section"><span>1</span>Your profile</div>
 
-          <div class="form-style-10">
-              <h1>Edit your profile</h1>
-
-
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= f.error_notification %>
-            <div class="section"><span>1</span>Your profile</div>
-
-            <div class="inner-wrap">
-            <div class="form-inputs">
-              <%= f.input :first_name %>
-              <%= f.input :photo %>
-              <%= f.input :photo_cache, as: :hidden %>
-          <!--      <form action="">
-                <label> I'm a:<br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-              </label>
-              </form> -->
-            </div>
-            </div>
-
-            <div class="section"><span>2</span>Description</div>
-            <div class="inner-wrap">
-              <%= f.input :description %>
-          <!--     <form action="">
-              <label> Interested in:<br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <input type="radio" name="gender" value="Both"> Both
-              </label>
-              </form> -->
-            </div>
-
-
+                <div class="inner-wrap">
+                  <div class="form-inputs">
+                    <%= f.input :first_name %>
+                    <%= f.input :photo %>
+                    <%= f.input :photo_cache, as: :hidden %>
+                     <div class="form-checkbox">
+                      <label class="control-label file optional"> I'm a: </label>
+                      <%= f.label "Female" %><br>
+                      <%= f.radio_button :gender, value: "female", type: "radio" %>
+                      <%= f.label "Male" %><br>
+                      <%= f.radio_button :gender, value: "male", type: "radio" %>
+                    </div><br>
+                    <div class="form-checkbox">
+                      <label class="control-label file optional"> Interested in: </label>
+                        <%= f.label "Women" %><br>
+                        <%= f.radio_button :interested_in, value: "women",type: "radio"%>
+                        <%= f.label "Men" %><br>
+                        <%= f.radio_button :interested_in, value: "men",type: "radio" %>
+                        <%= f.label "Both" %><br>
+                        <%= f.radio_button :interested_in, value: "both",type: "radio" %>
+                    </div>
+                  </div>
+                </div>
+              <div class="section"><span>2</span>Description</div>
+              <div class="inner-wrap">
+                <%= f.input :description %>
+              </div>
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                 <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
               <% end %>
 
-            <div class="form-actions">
-              <%= f.button :submit, "Update", class: "btn btn-primary" %>
+              <div class="form-actions">
+                <%= f.button :submit, "Update", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+            <div class="section end-section">Cancel my account</div>
+            <div class="inner-wrap">
+              <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), class: "link-edit", data: { confirm: "Are you sure?" }, method: :delete %></p>
             </div>
-          <% end %>
-
-          <div class="section end-section">Cancel my account</div>
-          <div class="inner-wrap">
-          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), class: "link-edit", data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-        </div>
         <%= link_to "Back", :back, class: "link-edit" %>
       </div>
     </div>
