@@ -19,7 +19,7 @@
   -o-transition: all 1s ease;
   transition: all 1s ease;
     .btn {
-      transform: translateY(1200%);
+     /* transform: translateY(1200%);*/
       display: inline-block;
   }
 
@@ -76,12 +76,12 @@
 
 .card {
   width: 500px;
-  background-color: #d6d6d6;
+  background-color: $grey-card;
   padding: 4px;
   border-radius: 5px;
   height: 83vh;
   text-align: center;
-  box-shadow: 0 0 20px rgba(70,70,70,0.7);
+  box-shadow: 0 0 8px rgba(37, 37, 37, 0.4);
   p {
     margin-left: 20px;
     text-align: left;

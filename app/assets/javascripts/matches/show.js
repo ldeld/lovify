@@ -1,4 +1,4 @@
-// var showFullList = document.getElementById("show-full-list");
+var showFullList = document.getElementById("show-full-list");
 var showMoreInfo = document.getElementById("show-more-info");
 var profileCard = document.getElementById("profile-card");
 var card = document.querySelector(".card");
@@ -20,12 +20,7 @@ var card = document.querySelector(".card");
 //   });
 // };
 
-// showMoreInfo.addEventListener("click", function(event) {
-//   event.preventDefault();
-//   infoCard.classList.remove("hidden");
-//   profileCard.classList.remove("col-xs-offset-3");
-//   showMoreInfo.classList.add("hidden")
-// });
+
 
 
 function triggerIn() {
@@ -40,8 +35,13 @@ function triggerIn() {
   // profileCard.classList.remove( "col-xs-offset-3");
 
 }
-function triggerOut() {
-  document.querySelector("#on").setAttribute("id", "off");
-  var elem = document.querySelector(".fade");
-  elem.parentNode.removeChild(elem);
-}
+
+
+
+
+showMoreInfo.addEventListener("click", function(event) {
+  event.preventDefault();
+  infoCard.classList.remove("hidden");
+  profileCard.classList.remove("col-xs-offset-3");
+  showMoreInfo.classList.add("hidden")
+});
