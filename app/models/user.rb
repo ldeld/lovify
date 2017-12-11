@@ -101,7 +101,6 @@ class User < ApplicationRecord
         g = Genre.create!(name: genre)
       end
       ArtistGenre.create!(artist: Artist.find_by(spotify_id: artist.id), genre: g)
-      # binding.pry
     end
   end
 
