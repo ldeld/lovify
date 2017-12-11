@@ -13,7 +13,11 @@
 
     <div class="sidebar-menu">
       <div class="sidebar-avatar">
-        <%= cl_image_tag current_user.photo, height: 35, width: 35, crop: :fill, class: "avatar", id: "navbar-wagon-menu" %>
+        <% if current_user.photo.path.nil? %>
+          <img src=<%= User.find(current_user).spotify_photo %> class="avatar" >
+        <% else %>
+          <%= cl_image_tag current_user.photo, crop: :fill, class: "avatar", id: "navbar-wagon-menu" %>
+        <% end %>
         <div id="user-name-sidebar">
           <%= current_user.first_name %>
         </div>

@@ -37,6 +37,7 @@ class User < ApplicationRecord
       user = User.new(user_params)
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.spotify_auth = auth
+      user.spotify_photo = auth.info.slice(:images).images.first.url unless auth.info.slice(:images).images.first.nil?
       user.save
     end
 
