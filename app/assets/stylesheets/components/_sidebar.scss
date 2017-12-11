@@ -1,7 +1,7 @@
 /* Main navbar */
 .sidebar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #fff;
+  background: $grey-card;
   transition: all 0.3s ease;
   width: 17%;
   padding: 0px 30px;
@@ -61,7 +61,6 @@
 }
 
 #user-name-sidebar {
-  color: black;
   opacity: 0.5;
 }
 
