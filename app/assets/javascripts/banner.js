@@ -25,6 +25,5 @@ $(function() {
 var scrollIcon = document.querySelector(".scroll-down")
 
 document.addEventListener("scroll", function(event) {
-  once: true;
   scrollIcon.style.opacity = 0;
-})
+}, {once: true} )
