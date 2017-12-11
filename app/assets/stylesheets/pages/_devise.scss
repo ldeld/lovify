@@ -37,6 +37,15 @@ a:hover {
   opacity: 1;
 }
 
+.form-checkbox{
+  display: inline-flex;
+  p {
+    padding-right: 10px;
+  }
+  label {
+    padding: 7px;
+  }
+}
 
 .end-section {
   margin-top: 60px;
@@ -85,6 +94,7 @@ a:hover {
     display: block;
     font: 13px Arial, Helvetica, sans-serif;
     color: #888;
+    padding-top: 7px;
     margin-bottom: 15px;
 }
 

@@ -16,25 +16,37 @@
               <%= f.input :first_name %>
               <%= f.input :photo %>
               <%= f.input :photo_cache, as: :hidden %>
-          <!--      <form action="">
+                <!-- <form action="">
                 <label> I'm a:<br>
                 <input type="radio" name="gender" value="male"> Male<br>
                 <input type="radio" name="gender" value="female"> Female<br>
-              </label>
-              </form> -->
+                </label>
+                </form> -->
+
+            <div class="form-checkbox">
+              <label class="control-label file optional"> I'm a: </label>
+
+              <%= f.label "Female" %><br>
+              <%= f.radio_button :gender, value: "female" %>
+              <%= f.label "Male" %><br>
+              <%= f.radio_button :gender, value: "male" %>
+            </div><br>
+             <div class="form-checkbox">
+              <label class="control-label file optional"> Interested in: </label>
+                <%= f.label "Women" %><br>
+                <%= f.radio_button :interested_in, value: "women" %>
+                <%= f.label "Men" %><br>
+                <%= f.radio_button :interested_in, value: "men" %>
+                <%= f.label "Both" %><br>
+                <%= f.radio_button :interested_in, value: "both" %>
+            </div>
             </div>
             </div>
 
             <div class="section"><span>2</span>Description</div>
             <div class="inner-wrap">
               <%= f.input :description %>
-          <!--     <form action="">
-              <label> Interested in:<br>
-                <input type="radio" name="gender" value="male"> Male<br>
-                <input type="radio" name="gender" value="female"> Female<br>
-                <input type="radio" name="gender" value="Both"> Both
-              </label>
-              </form> -->
+
             </div>
 
 
