@@ -73,6 +73,8 @@
 .sidebar-wagon .avatar {
   height: 70px;
   width: 70px;
+  object-fit: cover;
+  overflow: hidden;
   border-radius: 50%;
 }
 
