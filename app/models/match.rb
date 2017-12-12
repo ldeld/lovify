@@ -3,14 +3,16 @@ class Match < ApplicationRecord
   belongs_to :user_2, :class_name => "User"
   has_many :artist_listen_in_commons
   has_many :track_listen_in_commons
-  has_many :match_genres
+  has_many :match_genres, dependent: :destroy
   has_many :genres, through: :match_genres
+  has_many :match_bars, dependent: :destroy
+  has_many :bars, through: :match_bars
 
   validates :user_1, presence: true
   validates :user_2, presence: true
   validates :score, presence: true
 
-  after_create :calculate_score
+  after_create :calculate_score, :find_bars
 
   def calculate_score
     match_user_artists
@@ -51,6 +53,16 @@ class Match < ApplicationRecord
     match_artist.genres.each do |genre|
       unless self.genres.include? genre
         MatchGenre.create!(genre: genre, match: self)
+      end
+    end
+  end
+
+  def find_bars
+    Bar.all.each do |bar|
+      bar.genres.each do |genre|
+        if self.genres.include? genre
+          MatchBar.create!(bar: bar, match: self)
+        end
       end
     end
   end
