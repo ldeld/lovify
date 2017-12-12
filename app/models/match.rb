@@ -7,6 +7,7 @@ class Match < ApplicationRecord
   has_many :genres, through: :match_genres
   has_many :match_bars, dependent: :destroy
   has_many :bars, through: :match_bars
+  has_one :rdv
 
   validates :user_1, presence: true
   validates :user_2, presence: true
