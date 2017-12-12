@@ -20,3 +20,61 @@ Bar.create!(name: "Livestation DIY", description: "Soirées électro dans ce bar
 Bar.create!(name: "La M.M.", description: "La Maison Mère, ou M.M., est le temple onirique de la hype attitude lyonnaise, la maison des jeunes et des encore-jeunes-dans-leur-tête.", address: "21 Place Gabriel Rambaud, 69001 Lyon", photo: "https://i.pinimg.com/736x/b2/3a/53/b23a537ad6f06f04c02191dcbe24224c--bar-lyon-lyon-france.jpg")
 Bar.create!(name: "La Grooverie", description: "On y va pour l'ambiance, la multitude d'événements musicaux, la bonne humeur et les beats alliant funk et hip hop !", address: "9 Rue du Jardin des Plantes, 69001 Lyon", photo: "http://atelierlabricole.com/wp-content/uploads/2016/04/groov3.jpg")
 Bar.create!(name: "Redwood", description: "Au cœur des cordeliers, le Redwood propose une ambiance d’inspiration londonienne et des cocktails élaborés.", address: "1 Rue Chavanne, 69001 Lyon", photo: "https://www.petitpaume.com/sites/default/files/styles/slider_large/public/visuel/redwood.jpg?itok=jc590K9W")
+
+
+#Genres
+
+#rap
+Genre.create!(name: "hip hop")
+Genre.create!(name: "rap")
+Genre.create!(name: "r&b")
+
+#pop
+Genre.create!(name: "pop")
+
+#rock
+Genre.create!(name: "rock")
+Genre.create!(name: "metal")
+Genre.create!(name: "punk")
+
+#electro
+Genre.create!(name: "electro")
+Genre.create!(name: "edm")
+Genre.create!(name: "techo")
+
+#latin
+Genre.create!(name: "latin")
+Genre.create!(name: "tropical")
+Genre.create!(name: "raggaeton")
+
+#jazz
+Genre.create!(name: "jazz")
+Genre.create!(name: "blues")
+Genre.create!(name: "lounge")
+Genre.create!(name: "soul")
+Genre.create!(name: "folk")
+
+
+
+#BarGenres = table intermediaire
+BarGenre.create!(bar_id: 1, genre_id: 4)
+BarGenre.create!(bar_id: 2, genre_id: 4)
+BarGenre.create!(bar_id: 3, genre_id: 4)
+BarGenre.create!(bar_id: 4, genre_id: 8)
+BarGenre.create!(bar_id: 4, genre_id: 9)
+BarGenre.create!(bar_id: 4, genre_id: 10)
+BarGenre.create!(bar_id: 5, genre_id: 8)
+BarGenre.create!(bar_id: 5, genre_id: 9)
+BarGenre.create!(bar_id: 5, genre_id: 10)
+BarGenre.create!(bar_id: 6, genre_id: 8)
+BarGenre.create!(bar_id: 6, genre_id: 9)
+BarGenre.create!(bar_id: 6, genre_id: 10)
+BarGenre.create!(bar_id: 7, genre_id: 1)
+BarGenre.create!(bar_id: 7, genre_id: 2)
+BarGenre.create!(bar_id: 7, genre_id: 3)
+BarGenre.create!(bar_id: 8, genre_id: 1)
+BarGenre.create!(bar_id: 8, genre_id: 2)
+BarGenre.create!(bar_id: 8, genre_id: 3)
+BarGenre.create!(bar_id: 9, genre_id: 1)
+BarGenre.create!(bar_id: 9, genre_id: 2)
+BarGenre.create!(bar_id: 9, genre_id: 3)
