@@ -1,10 +1,18 @@
 class MatchesController < ApplicationController
-  before_action :set_match, only: [:show, :ask_out, :not_interested, :update]
+  before_action :set_match, only: [:show, :update]
 
   def user_matches
     matches = Match.where(user_1: current_user) + Match.where(user_2: current_user)
-    matches.reject! { |m| m.score == 0 || m.asker == current_user.id || (m.asker =! nil && m.receiver != nil) || m.hide == true}
-    matches
+    matches.reject! { |m| m.score == 0 || m.asker == current_user.id || (m.asker != nil && m.receiver != nil) || m.hide == true}
+    matches.reject! { |m| m.score == 0 || m.asker == current_user.id || (m.asker != nil && m.receiver != nil) || m.hide == true}
+
+    matches.each do |match|
+      if match.user_1.interested_in != match.user_2.gender && match.user_1.interested_in != "both"
+        Match.destroy(match.id)
+      elsif match.user_2.interested_in != match.user_1.gender && match.user_2.interested_in != "both"
+        Match.destroy(match.id)
+      end
+    end
   end
 
   def index
@@ -15,16 +23,6 @@ class MatchesController < ApplicationController
 
   def show
     @user = current_user
-  end
-
-  def ask_out
-    @match.asker = current_user.email
-    @match.save
-  end
-
-  def not_interested
-    @match.hide = true
-    @match.save
   end
 
   def update

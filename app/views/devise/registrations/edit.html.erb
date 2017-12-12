@@ -26,18 +26,18 @@
             <div class="form-checkbox">
               <label class="control-label file optional"> I'm a: </label>
 
-              <%= f.radio_button :gender, value: "woman" %><br>
+              <%= f.radio_button :gender, "woman" %><br>
               <%= f.label "Woman" %>
-              <%= f.radio_button :gender, value: "man" %><br>
+              <%= f.radio_button :gender, "man" %><br>
               <%= f.label "Man" %>
             </div><br>
              <div class="form-checkbox">
               <label class="control-label file optional"> Interested in: </label>
-                <%= f.radio_button :interested_in, value: "women" %><br>
+                <%= f.radio_button :interested_in, "woman" %><br>
                 <%= f.label "Women" %>
-                <%= f.radio_button :interested_in, value: "men" %><br>
+                <%= f.radio_button :interested_in, "man" %><br>
                 <%= f.label "Men" %>
-                <%= f.radio_button :interested_in, value: "both" %><br>
+                <%= f.radio_button :interested_in, "both" %><br>
                 <%= f.label "Both" %>
             </div>
             </div>
