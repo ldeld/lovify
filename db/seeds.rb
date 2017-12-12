@@ -21,7 +21,6 @@ mm = Bar.create!(name: "La M.M.", description: "La Maison Mère, ou M.M., est le
 grooverie = Bar.create!(name: "La Grooverie", description: "On y va pour l'ambiance, la multitude d'événements musicaux, la bonne humeur et les beats alliant funk et hip hop !", address: "9 Rue du Jardin des Plantes, 69001 Lyon", photo: "http://atelierlabricole.com/wp-content/uploads/2016/04/groov3.jpg")
 redwood = Bar.create!(name: "Redwood", description: "Au cœur des cordeliers, le Redwood propose une ambiance d’inspiration londonienne et des cocktails élaborés.", address: "1 Rue Chavanne, 69001 Lyon", photo: "https://www.petitpaume.com/sites/default/files/styles/slider_large/public/visuel/redwood.jpg?itok=jc590K9W")
 
-
 #Genres
 rap = [Genre.create!(name: "hip hop"), Genre.create!(name: "rap"), Genre.create!(name: "r&b"), Genre.create!(name: "underground hip hop"), Genre.create!(name: "trap music"), Genre.create!(name: "dwn trap"), Genre.create!(name: "southern hip hop")]
 pop = [Genre.create!(name: "pop"), Genre.create!(name: "pop rap"), Genre.create!(name: "dance pop"), Genre.create!(name: "indie pop"), Genre.create!(name: "post-teen pop")]
