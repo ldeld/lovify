@@ -52,6 +52,11 @@ a:hover {
 }
 
 
+.image-edit {
+  margin-left: 25%;
+  padding-bottom: 25px;
+}
+
 .form-style-10{
     width: 600px;
     padding:30px;
@@ -67,12 +72,12 @@ a:hover {
 }
 .form-style-10 .inner-wrap{
     padding: 30px;
-    background: #F8F8F8;
+    background: #353535;
     border-radius: 6px;
     margin-bottom: 15px;
 }
 .form-style-10 h1{
-    background: #84006e;
+    background: $purple;
     padding: 20px 30px 15px 30px;
     margin: -30px -30px 30px -30px;
     border-radius: 10px 10px 0 0;
@@ -83,16 +88,14 @@ a:hover {
     -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
     -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-    border: 1px solid #257C9E;
+    border: 1px solid $purple;
 }
 .form-style-10 h1 > span{
     display: block;
     margin-top: 2px;
-    font: 13px Arial, Helvetica, sans-serif;
 }
 .form-style-10 label{
     display: block;
-    font: 13px Arial, Helvetica, sans-serif;
     color: #888;
     padding-top: 7px;
     margin-bottom: 15px;
@@ -115,8 +118,6 @@ a:hover {
 }
 
 .form-style-10 .section{
-    font: normal 20px 'Bitter', serif;
-    color: #963689;
     margin-bottom: 5px;
 }
 .form-style-10 .section span {
@@ -126,7 +127,7 @@ a:hover {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border: 4px solid #fff;
+    border: 4px solid #353535;
     font-size: 14px;
     margin-left: -45px;
     color: #fff;
@@ -136,7 +137,6 @@ a:hover {
 .form-style-10 .privacy-policy{
     float: right;
     width: 250px;
-    color: #4D4D4D;
     margin-top: 10px;
     text-align: right;
 }

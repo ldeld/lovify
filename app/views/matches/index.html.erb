@@ -13,6 +13,7 @@
 
           <div class="message-name">
             <h3><%= User.find(match_request.asker).first_name %></h3>
+            <h3><%= link_to "See match", match_path(@user) %></h3>
           </div>
           <div class="message-status">
             Wanna go on a date?

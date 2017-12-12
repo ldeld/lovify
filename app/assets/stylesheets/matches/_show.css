@@ -151,3 +151,7 @@
       opacity: 1;
     }
 }
+
+.scrollable {
+  overflow-y: scroll;
+}
