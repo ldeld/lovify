@@ -10,6 +10,7 @@ gem 'puma'
 gem 'rails', '5.0.6'
 gem 'redis'
 gem 'rspotify'
+gem "geocoder"
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
