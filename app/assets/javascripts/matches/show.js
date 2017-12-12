@@ -3,23 +3,8 @@ var showFullList = document.getElementById("show-full-list");
 var showMoreInfo = document.getElementById("show-more-info");
 var profileCard = document.getElementById("profile-card");
 var card = document.querySelector(".card");
-// var infoCard = document.getElementById("more-info")
+var infoCard = document.getElementById("more-info")
 
-// if (showFullList) {
-//   showFullList.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     hiddenArtists = document.getElementById("artist-list")
-//     hiddenArtists.classList.toggle("hidden");
-//     hiddenArtists.classList.toggle("show-content");
-
-//     hiddenTracks = document.getElementById("track-list")
-//     hiddenTracks.classList.toggle("hidden");
-//     hiddenTracks.classList.toggle("show-content");
-
-
-//     showFullList.classList.add("hidden");
-//   });
-// };
 
 
 
@@ -40,6 +25,21 @@ function triggerIn() {
 }
 
 
+if (showFullList) {
+  showFullList.addEventListener("click", function(event) {
+    event.preventDefault();
+    hiddenArtists = document.getElementById("artist-list")
+    hiddenArtists.classList.toggle("hidden");
+    hiddenArtists.classList.toggle("show-content");
+
+    hiddenTracks = document.getElementById("track-list")
+    hiddenTracks.classList.toggle("hidden");
+    hiddenTracks.classList.toggle("show-content");
+
+
+    showFullList.classList.add("hidden");
+  });
+};
 
 
 showMoreInfo.addEventListener("click", function(event) {
