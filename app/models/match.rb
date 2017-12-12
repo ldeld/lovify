@@ -1,8 +1,8 @@
 class Match < ApplicationRecord
   belongs_to :user_1, :class_name => "User"
   belongs_to :user_2, :class_name => "User"
-  has_many :artist_listen_in_commons
-  has_many :track_listen_in_commons
+  has_many :artist_listen_in_commons, dependent: :destroy
+  has_many :track_listen_in_commons, dependent: :destroy
   has_many :match_genres, dependent: :destroy
   has_many :genres, through: :match_genres
   has_many :match_bars, dependent: :destroy

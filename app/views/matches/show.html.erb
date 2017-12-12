@@ -28,7 +28,7 @@
     <!-- This is the hidden "more info" card-->
 
   <div class="flybox-wrap" id="off">
-    <div class="card" >
+    <div class="card scrollable" >
 <!--       <div class="animated fadeInRight">
       <div class="card scrollable hidden" id="more-info"> -->
       <h4>Artists in common: </h4>
@@ -79,9 +79,12 @@
       <div class="date-btns">
         <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
 
-<!--         </div>
-      </div>
-      </div> -->
+        <%# link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :patch, class: "btn btn-not" %>
+        <%# if @match.asker.nil? %>
+          <%# link_to "Ask out!", match_path(@match, {match:{asker: @user.id}}), method: :patch, class: "btn btn-date" %>
+        <%# else %>
+          <%# link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :patch, class: "btn btn-date" %>
+        <%# end %>
       </div>
     </div>
   </div>
