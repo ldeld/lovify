@@ -65,13 +65,19 @@
           <a href="#" id="show-full-list">Show all</a>
         <% end %>
       <% end %>
+      <div class="bars">
+        <% bars = @match.bars.first(3) %>
+        <%= simple_form_for [@match, @rdv] do |f| %>
+          <%= f.collection_radio_buttons :bar_id, bars, :id, :name  %>
+          <% if @match.asker.nil? %>
+            <%= f.submit "Ask out!", class: "btn btn-date"%>
+          <% else %>
+            <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn btn-date" %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="date-btns">
         <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
-        <% if @match.asker.nil? %>
-          <%= link_to "Ask out!", match_path(@match, {match:{asker: @user.id}}), method: :put, class: "btn btn-date" %>
-        <% else %>
-          <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn btn-date" %>
-        <% end %>
 
 <!--         </div>
       </div>
