@@ -3,7 +3,8 @@ class MatchesController < ApplicationController
 
   def user_matches
     matches = Match.where(user_1: current_user) + Match.where(user_2: current_user)
-    matches.reject! { |m| m.score == 0 || m.asker == current_user.id || (m.asker =! nil && m.receiver != nil) || m.hide == true}
+    matches.reject! { |m| m.score == 0 || m.asker == current_user.id || (m.asker != nil && m.receiver != nil) || m.hide == true}
+    # binding.pry
     matches
   end
 
@@ -15,11 +16,6 @@ class MatchesController < ApplicationController
 
   def show
     @user = current_user
-  end
-
-  def ask_out
-    @match.asker = current_user.email
-    @match.save
   end
 
   def not_interested

@@ -79,6 +79,27 @@ ActiveRecord::Schema.define(version: 20171212133339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "listen_in_commons", force: :cascade do |t|
+    t.integer  "listen_user_1_id"
+    t.integer  "listen_user_2_id"
+    t.integer  "match_id_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["listen_user_1_id"], name: "index_listen_in_commons_on_listen_user_1_id", using: :btree
+    t.index ["listen_user_2_id"], name: "index_listen_in_commons_on_listen_user_2_id", using: :btree
+    t.index ["match_id_id"], name: "index_listen_in_commons_on_match_id_id", using: :btree
+  end
+
+  create_table "listenings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.float    "ratio"
+    t.string   "type"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listenings_on_user_id", using: :btree
+  end
+
   create_table "match_bars", force: :cascade do |t|
     t.integer  "bar_id"
     t.integer  "match_id"
@@ -206,10 +227,13 @@ ActiveRecord::Schema.define(version: 20171212133339) do
   add_foreign_key "artist_listens", "users"
   add_foreign_key "bar_genres", "bars"
   add_foreign_key "bar_genres", "genres"
+  add_foreign_key "listenings", "users"
   add_foreign_key "match_bars", "bars"
   add_foreign_key "match_bars", "matches"
   add_foreign_key "match_genres", "genres"
   add_foreign_key "match_genres", "matches"
+  add_foreign_key "meetings", "matches"
+  add_foreign_key "meetings", "places"
   add_foreign_key "rdvs", "bars"
   add_foreign_key "rdvs", "matches"
   add_foreign_key "track_listen_in_commons", "matches"
