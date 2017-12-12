@@ -23,6 +23,7 @@ class MatchesController < ApplicationController
 
   def show
     @user = current_user
+    @rdv = Rdv.new
   end
 
   def update
