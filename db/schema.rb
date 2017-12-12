@@ -108,6 +108,25 @@ ActiveRecord::Schema.define(version: 20171212111920) do
     t.index ["user_2_id"], name: "index_matches_on_user_2_id", using: :btree
   end
 
+  create_table "meetings", force: :cascade do |t|
+    t.integer  "match_id"
+    t.date     "date"
+    t.string   "title"
+    t.integer  "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_meetings_on_match_id", using: :btree
+    t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "rdvs", force: :cascade do |t|
     t.integer  "match_id"
     t.integer  "bar_id"
@@ -171,9 +190,9 @@ ActiveRecord::Schema.define(version: 20171212111920) do
     t.string   "gender"
     t.string   "photo"
     t.string   "spotify_auth"
+    t.string   "interested_in"
     t.string   "spotify_photo"
     t.integer  "login_count",            default: 0
-    t.string   "interested_in"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
