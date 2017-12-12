@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211140052) do
+ActiveRecord::Schema.define(version: 20171212104214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 20171211140052) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "match_genres", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_match_genres_on_genre_id", using: :btree
+    t.index ["match_id"], name: "index_match_genres_on_match_id", using: :btree
   end
 
   create_table "matches", force: :cascade do |t|
@@ -167,6 +176,8 @@ ActiveRecord::Schema.define(version: 20171211140052) do
   add_foreign_key "artist_listens", "users"
   add_foreign_key "bar_genres", "bars"
   add_foreign_key "bar_genres", "genres"
+  add_foreign_key "match_genres", "genres"
+  add_foreign_key "match_genres", "matches"
   add_foreign_key "rdvs", "bars"
   add_foreign_key "rdvs", "matches"
   add_foreign_key "track_listen_in_commons", "matches"

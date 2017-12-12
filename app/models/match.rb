@@ -3,6 +3,8 @@ class Match < ApplicationRecord
   belongs_to :user_2, :class_name => "User"
   has_many :artist_listen_in_commons
   has_many :track_listen_in_commons
+  has_many :match_genres
+  has_many :genres, through: :match_genres
 
   validates :user_1, presence: true
   validates :user_2, presence: true
@@ -26,6 +28,7 @@ class Match < ApplicationRecord
         common.artist_listen_user_2 = user_2.artist_listens.where(artist: artist_listen.artist).first
         common.match = self
         common.save
+        create_match_genre(artist_listen.artist)
         self.score += (10 / (artist_listen.rank + user_2.artist_listens.where(artist: artist_listen.artist).first.rank)) * (Math.exp(- 0.8 - (artist_listen.artist.popularity / 100 )) + 1)
       end
     end
@@ -40,6 +43,14 @@ class Match < ApplicationRecord
         common.save
         self.score += 0.8 * (10 / (track_listen.rank + user_2.track_listens.where(track: track_listen.track).first.rank)) * (Math.exp(- 0.8 - (track_listen.track.popularity / 100 )) + 1)
 
+      end
+    end
+  end
+
+  def create_match_genre(match_artist)
+    match_artist.genres.each do |genre|
+      unless self.genres.include? genre
+        MatchGenre.create!(genre: genre, match: self)
       end
     end
   end
