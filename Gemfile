@@ -11,6 +11,12 @@ gem 'rails', '5.0.6'
 gem 'redis'
 gem 'rspotify'
 gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
