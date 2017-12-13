@@ -6,3 +6,4 @@
 //= require_tree .
 
 //= require matches/show
+//= require rdvs/index

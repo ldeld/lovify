@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :tracks, through: :track_listens
   has_many :matches, foreign_key: :user_1_id, dependent: :destroy
   has_many :matches, foreign_key: :user_2_id, dependent: :destroy
+  has_many :rdvs, foreign_key: :asker_id, dependent: :destroy
+  has_many :rdvs, foreign_key: :receiver_id, dependent: :destroy
 
   serialize :spotify_auth, JSON
 

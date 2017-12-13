@@ -1,42 +1,13 @@
-.abw {
-    position: absolute;
-    width: 60%;
-    left:0;
-  }
-  .top {
-    top:0;
-    ul.menu {
-      background-color: #16171A;
-      height: 47px;
-      top: 0;
-      list-style:none;
-      overflow:hidden;
-      li {
-        transition: 0.25s;
-        transition-timing-function: ease-in-out;
-        display: inline-block;
-        margin:0px;
-        float:left;
-        padding:0px;
-        width: 45%;
-        text-align:center;
-        padding-top: 13px;
-        padding-bottom: 5px;
-        cursor:pointer;
-        color:#BBBBBB;
-        border-bottom: #16171A 10px solid;
-        &.selected {
-          color:#fff;
-          transition: 0.25s;
-          border-bottom: $purple 10px solid;
-        }
-      }
-    }
-  }
 
+
+.main {
+  width: calc(100vw - 26%);
+  margin-left: 22%;
+  margin-top: 10px;
+}
 
 .tab-container {
-  padding-top: 75px;
+  padding-top: 40px;
   margin:auto;
   margin-top:40px;
   border-radius: 0px 0px 3px 3px;
@@ -44,16 +15,58 @@
   width: 90%;
 }
 
+.tab-bar {
+  display: flex;
+  height: 48px;
+  margin-bottom: 24px;
+  a{
+    text-decoration: none;
+    color: $white-font;
+  }
+  &:hover{
+    color: white;
+  }
+}
+
+.tab {
+  padding: 0 24px;
+  height: 48px;
+  /*   width: 100%; */
+  text-align: center;
+  line-height: 56px;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: transparent;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.tab.is-active {
+  color: #555;
+  opacity: 1;
+  transition: opacity .3s linear;
+  border-bottom: 2px solid $purple;
+  transition: all 0.3s ease-in-out;
+}
+
+.tab.is-active:after {
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #3f51b5;
+  transition: all 0.3s ease-in-out;
+}
 
 .tab-content {
   display: none;
-  background-color: $grey-card;
   -webkit-animation: fadein 1s;
   -moz-animation: fadein 1s;
   -ms-animation: fadein 1s;
   -o-animation: fadein 1s;
   animation: fadein 1s;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .tab-content.is-active {
@@ -68,13 +81,6 @@
     opacity: 1;
   }
 }
-
-.main{
-  width: calc(100vw - 26%);
-  margin-left: 22%;
-  margin-top: 10px;
-}
-
 
 
 
@@ -100,10 +106,8 @@
     font-size: 13px;
     line-height:9px;
     margin-bottom: 0px;
-    color:black
   };
   p{
-    color:#777;
     font-size: 13px;
     font-weight: lighter;
     line-height:7px;
@@ -122,5 +126,4 @@
   margin-left: 20%;
 }
 
-@import 'show'
 
