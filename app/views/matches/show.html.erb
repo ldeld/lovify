@@ -8,11 +8,7 @@
         <% @match.user_1 == current_user ? user = @match.user_2 : user = @match.user_1 %>
         <h2>You matched with <%= user.first_name %></h2>
         <div class="img-container">
-          <% if User.find(user).photo.path.nil? %>
-            <img src=<%= User.find(user).spotify_photo %> class="profile-picture" >
-          <% else %>
-            <%= cl_image_tag User.find(user).photo, class: "profile-picture" %>
-          <% end %>
+          <%= profile_picture_for(User.find(user), class: "profile-picture") %>
         </div>
         <div class="matchistics">
           <h3>Matchistics: <%= @match.score %></h3>
@@ -34,15 +30,15 @@
       <h4>Artists in common: </h4>
 
       <% if @match.artist_listen_in_commons.length < 5 %>
-        <% @match.artist_listen_in_commons.reverse.each do |a_in_common| %>
+        <% @match.artist_listen_in_commons.each do |a_in_common| %>
           <p><%= a_in_common.artist.name %></p>
         <% end %>
       <% else %>
-        <% @match.artist_listen_in_commons.reverse.first(5).each do |a_in_common| %>
+        <% @match.artist_listen_in_commons.first(5).each do |a_in_common| %>
           <p class="show-content"><%= a_in_common.artist.name %></p>
         <% end %>
         <div id="artist-list" class="hidden">
-          <% @match.artist_listen_in_commons.reverse.drop(5).each do |a_in_common| %>
+          <% @match.artist_listen_in_commons.drop(5).each do |a_in_common| %>
             <p><%= a_in_common.artist.name %></p>
           <% end %>
         </div>
@@ -50,15 +46,15 @@
       <% unless @match.track_listen_in_commons.empty? %>
         <h4>Tracks you both like: </h4>
         <% if @match.track_listen_in_commons.length < 5 %>
-          <% @match.track_listen_in_commons.reverse.each do |tr_in_common| %>
+          <% @match.track_listen_in_commons.each do |tr_in_common| %>
             <p><%= tr_in_common.track.name %></p>
           <% end %>
         <% else %>
-          <% @match.track_listen_in_commons.reverse.first(5).each do |tr_in_common| %>
+          <% @match.track_listen_in_commons.first(5).each do |tr_in_common| %>
             <p class="show-content"><%= tr_in_common.track.name %></p>
           <% end %>
           <div id="track-list" class="hidden">
-            <% @match.track_listen_in_commons.reverse.drop(5).each do |tr_in_common| %>
+            <% @match.track_listen_in_commons.drop(5).each do |tr_in_common| %>
               <p><%= tr_in_common.track.name %></p>
             <% end %>
           </div>

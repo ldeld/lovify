@@ -12,11 +12,7 @@
         <ul class="inbox">
           <% @match_requests.each do |match_request| %>
           <li class="message">
-            <% if User.find(match_request.asker).photo.path.nil? %>
-              <img src=<%= User.find(match_request.asker).spotify_photo %> height="80", width="80", class="avatar" >
-            <% else %>
-              <%= cl_image_tag User.find(match_request.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-            <% end %>
+            <%= profile_picture_for(match_request.asker, height: 80, width: 80, class: "avatar") %>
             <div class="message-name">
               <h3><%= User.find(match_request.asker).first_name %></h3>
               <h3><%= link_to "See match", match_path(@user) %></h3>
@@ -36,11 +32,7 @@
         <% @matches_done.each do |match_done| %>
           <li class="message">
             <% if match_done.asker == @user.id %>
-              <% if User.find(match_done.receiver).photo.path.nil? %>
-                <%= image_tag User.find(match_done.receiver).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-              <% else %>
-                <%= cl_image_tag User.find(match_done.receiver).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-              <% end %>
+              <%= profile_picture_for(match_done.receiver, height: 80, width: 80, class: "avatar") %>
 
             <div class="message-name">
               <h3><%= User.find(match_done.receiver).first_name %></h3>
@@ -48,11 +40,7 @@
 
             <% else %>
 
-              <% if User.find(match_done.asker).photo.nil? %>
-                <%= image_tag User.find(match_done.asker).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-              <% else %>
-                <%= cl_image_tag User.find(match_done.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-              <% end %>
+              <%= profile_picture_for(match_done.asker, height: 80, width: 80, class: "avatar") %>
             <div class="message-name">
               <h3><%= User.find(match_done.asker).first_name %></h3>
             </div>
