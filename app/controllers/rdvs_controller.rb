@@ -15,6 +15,7 @@ class RdvsController < ApplicationController
     match.save!
     rdv.save!
     redirect_to "/next-match"
+    flash[:notice] = "You asked #{rdv.receiver.first_name} out!"
   end
 
   def accept
