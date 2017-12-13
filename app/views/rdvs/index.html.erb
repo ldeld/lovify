@@ -17,7 +17,7 @@
             <h3><%= link_to "See match", match_path(@user) %></h3>
           </div>
           <div class="message-status">
-            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-date" %>
+            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-primary" %>
           </div>
         </li>
       <% end %>
@@ -30,7 +30,6 @@
       <ul class="inbox">
       <% @rdvs_done.each do |rdv_done| %>
         <li class="message">
-
           <% if rdv_done.asker == @user.id %>
             <%= profile_picture_for(User.find(rdv_done.receiver), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">

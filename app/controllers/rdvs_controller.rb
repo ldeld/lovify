@@ -1,7 +1,7 @@
 class RdvsController < ApplicationController
   def index
     @user = current_user
-    @rdvs_done = @user.rdvs.where(accepted: true)
+    @rdvs_done = @user.rdvs.where(accepted: true) + Rdv.where(asker: @user).where(accepted: true)
     @rdvs_requests = @user.rdvs.where(receiver: current_user, accepted: false)
   end
 
