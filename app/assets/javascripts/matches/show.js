@@ -22,7 +22,7 @@ function triggerIn() {
 
   // profileCard.classList.remove( "col-xs-offset-3");
 
-}
+};
 
 
 if (showFullList) {
@@ -41,10 +41,11 @@ if (showFullList) {
   });
 };
 
-
-showMoreInfo.addEventListener("click", function(event) {
-  event.preventDefault();
-  infoCard.classList.remove("hidden");
-  profileCard.classList.remove("col-xs-offset-3");
-  showMoreInfo.classList.add("hidden")
-});
+if (showMoreInfo) {
+  showMoreInfo.addEventListener("click", function(event) {
+    event.preventDefault();
+    infoCard.classList.remove("hidden");
+    profileCard.classList.remove("col-xs-offset-3");
+    showMoreInfo.classList.add("hidden")
+  });
+};
