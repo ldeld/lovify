@@ -15,7 +15,7 @@
 }
 
 .border {
-  border-bottom: 2px solid #cccccc;
+  border-bottom: 2px solid rgba(221, 221, 221, 0.7);
   padding-left: 120px;
   padding-right: 70px;
   margin-bottom: 20px;
@@ -23,7 +23,7 @@
 }
 
 .border-light {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.7);
   margin-bottom: 20px;
   margin-top: 20px;
   margin-right: 15px;
@@ -61,7 +61,7 @@
 }
 
 #user-name-sidebar {
-  opacity: 0.5;
+  color: $white-font;
 }
 
 /* Logo */
@@ -79,19 +79,19 @@
 }
 
 .sidebar-link {
-  color: #616668;
+  color: $white-font;
 }
 
 .sidebar-link:hover {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
 
 .sidebar-link a {
-  color: #616668;
+  color: $white-font;
     &:hover {
-    color: black;
+    color: white;
     opacity: 1;
   };
 }

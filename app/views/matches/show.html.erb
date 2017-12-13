@@ -2,7 +2,7 @@
 
 <div class="container container-match-show">
  <!--  <div class="container"> -->
-  <div class="row">
+  <div class="card-container">
     <div id="profile-card">
       <div class="card">
         <% @match.user_1 == current_user ? user = @match.user_2 : user = @match.user_1 %>
@@ -24,7 +24,7 @@
     <!-- This is the hidden "more info" card-->
 
   <div class="flybox-wrap" id="off">
-    <div class="card scrollable" >
+    <div class="card" >
 <!--       <div class="animated fadeInRight">
       <div class="card scrollable hidden" id="more-info"> -->
       <h4>Artists in common: </h4>
