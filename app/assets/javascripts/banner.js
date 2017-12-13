@@ -15,6 +15,12 @@ function cycleBackgrounds() {
   }, 4000);
 };
 
+// Document Ready.
+$(function () {
+    cycleBackgrounds();
+});
+
+
 $(function() {
   $('.scroll-down').click (function() {
     $('html, body').animate({scrollTop: $('section.ok').offset().top }, 'slow');
@@ -24,6 +30,8 @@ $(function() {
 
 var scrollIcon = document.querySelector(".scroll-down")
 
-document.addEventListener("scroll", function(event) {
-  scrollIcon.style.opacity = 0;
-}, {once: true} )
+if (scrollIcon) {
+  document.addEventListener("scroll", function(event) {
+    scrollIcon.style.opacity = 0;
+  }, {once: true} )
+};
