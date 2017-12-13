@@ -13,10 +13,9 @@
         </div>
         <div class="col-xs-6 col-sm-6" >
           <div class="about">
-            <h4>Hi, <%= current_user.first_name %> !</h4>
+            <%= current_user.first_name %>
             <article>
-              Description:
-              <br>
+              <br/>
               <%= current_user.description %>
             </article>
           </div>
@@ -30,7 +29,7 @@
     </div>
     <div class="row" >
       <div class="profile-header artists">
-        <h4> Top artists Listens</h4>
+        <h4>Your favorite artists</h4>
       </div>
     </div>
     <div class="row">
@@ -46,7 +45,7 @@
     </div>
     <div class="row" >
       <div class="profile-header tracks">
-        <h4> Top tracks Listens</h4>
+        <h4>Your favorite tracks</h4>
       </div>
     </div>
     <div class="row" >
