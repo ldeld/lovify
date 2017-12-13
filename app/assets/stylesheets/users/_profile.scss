@@ -72,19 +72,21 @@
 }
 
 .profile h4{
-  line-height:24px;
+  margin:20px 0 0 0;
   font-size:1.2em;
   font-weight:800;
 }
 
 .about {
+  font-size:23px;
+  font-weight: lighter;
   margin-left: -55px;
 
 }
 
 .about article{
+  margin-top:0px;
   font-size:14px;
-  line-height:24px;
 }
 
 .edit-profile {
@@ -118,6 +120,9 @@
   height: 100px;
   background-position: 91% 49%;
   width: 100%;
+  h4{
+    margin-top:22px;
+  }
 }
 
 
@@ -129,6 +134,9 @@
   height: 100px;
   background-position: 91% 49%;
   background-size: cover;
+  h4{
+    margin-top:22px;
+  }
 }
 
 
