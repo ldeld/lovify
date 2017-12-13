@@ -2,11 +2,12 @@
   position: relative;
   overflow: hidden;
   height: 86vh;
-  width: 1183px;
+  width: calc(100vw - 17%);
   background: $grey-back;
   display: flex;
   align-items: center;
   margin-left: 17%;
+  margin-top: 7vh;
 }
 .flybox-wrap {
   position: absolute;
@@ -75,11 +76,11 @@
 }
 
 .card {
-  width: 500px;
+  width: 35vw;
   background-color: $grey-card;
   padding: 4px;
   border-radius: 5px;
-  height: 83vh;
+  height: 86vh;
   text-align: center;
   box-shadow: 0 0 8px rgba(37, 37, 37, 0.4);
   p {
