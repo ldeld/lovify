@@ -1,11 +1,10 @@
 <div class="main">
   <h2>Hi, <%= @user.first_name %>!</h2>
   <div class="tab-container">
-    <div class="top abw">
-      <ul class="menu abw">
-        <li class="selected" data-tab="tab-1">Requests</li>
-        <li data-tab="tab-2">Matches</li>
-      </ul>
+      <div class="tab-bar">
+        <a href="#Requests" class="tab is-active" data-tab="tab-1">Requests</a>
+        <a href="#Matches" class="tab" data-tab="tab-2">Matches</a>
+      </div>
     </div>
     <div class="tab-content is-active" id="tab-1">
       <!-- <div class="col-xs-12 col-sm-10 col-sm-offset-1"> -->
