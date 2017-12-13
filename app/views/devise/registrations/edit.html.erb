@@ -36,11 +36,7 @@
             <div class="section"><span>2</span>Your profile picture</div>
             <div class="inner-wrap">
               <div class="display-photo">
-                <% if current_user.photo.path.nil? || current_user.photo.nil? %>
-                  <img src=<%= current_user.spotify_photo %> class="image-edit" >
-                <% else %>
-                  <%= cl_image_tag current_user.photo, crop: :fill, class: "image-edit" %>
-                <% end %>
+                <%= profile_picture_for(current_user, class: "image-edit") %>
                 <%= f.input :photo, label: "Do you want to change you profile picture?"  %>
                 <%= f.input :photo_cache, as: :hidden %>
               </div>
