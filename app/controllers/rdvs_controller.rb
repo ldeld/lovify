@@ -20,7 +20,7 @@ class RdvsController < ApplicationController
   def accept
     rdv = Rdv.find(params[:id])
     rdv.update(accepted: true)
-    binding.pry
+    Conversation.create!(sender_id: rdv.asker.id, recipient_id: rdv.receiver.id, rdv_id: rdv.id)
     redirect_to rdvs_path
   end
 

@@ -23,9 +23,9 @@
         <div class="border-light"></div>
       <li><%= link_to "Start matching", "/next-match", class: "sidebar-link" %></li>
         <div class="border-light"></div>
-      <li><%= link_to "Messages", "#", class: "sidebar-link" %></li>
+      <li><%= link_to "Messages", conversations_path, class: "sidebar-link" %></li>
         <div class="border-light"></div>
-      <li><%= link_to "Dates", "/rdvs", class: "sidebar-link" %></li>
+      <li><%= link_to "Dates", rdvs_path, class: "sidebar-link" %></li>
       <div class="border-light"></div>
       <li>
         <div class="sidebar-link"><%= link_to destroy_user_session_path, method: :delete do %>

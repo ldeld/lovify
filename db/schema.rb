@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213104558) do
+ActiveRecord::Schema.define(version: 20171213144841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20171213104558) do
     t.float    "longitude"
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "rdv_id"
+    t.index ["rdv_id"], name: "index_conversations_on_rdv_id", using: :btree
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -119,6 +128,17 @@ ActiveRecord::Schema.define(version: 20171213104558) do
     t.datetime "updated_at", null: false
     t.index ["match_id"], name: "index_meetings_on_match_id", using: :btree
     t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
