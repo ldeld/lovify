@@ -35,7 +35,6 @@
       <ul class="inbox">
       <% @rdvs_done.each do |rdv_done| %>
         <li class="message">
-          <% binding.pry %>
           <% if rdv_done.asker == @user %>
             <% if User.find(rdv_done.receiver).photo.path.nil? %>
               <%= image_tag User.find(rdv_done.receiver).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
