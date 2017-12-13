@@ -1,122 +1,67 @@
 <div class="body body-profile">
 
-<div class="container-profile">
+<div class="container container-profile">
   <div class="header-image"></div>
-  <div class="content">
-   <aside class="aside-01">
-    <div class="profile">
-        <%= profile_picture_for(current_user, height: 80, width: 80, class: "image") %>
-      <h4>Hi, <%= current_user.first_name %> !</h4>
-
-      <tr>
-        <div class="about">
-          <article>
-            Description: <%= current_user.description %>
-          </article>
+    <div class="row">
+      <div class="profile">
+        <div class="col-xs-4 col-sm-3">
+          <% if current_user.photo.path.nil? || current_user.photo.nil? %>
+            <img src=<%= current_user.spotify_photo %> class="profile-image" >
+          <% else %>
+            <%= cl_image_tag current_user.photo, crop: :fill, class: "profile-image" %>
+          <% end %>
         </div>
-        <div class="edit-profile">
-           <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
+        <div class="col-xs-6 col-sm-6" >
+          <div class="about">
+            <h4>Hi, <%= current_user.first_name %> !</h4>
+            <article>
+              Description:
+              <br>
+              <%= current_user.description %>
+            </article>
+          </div>
         </div>
+        <div class="col-xs-4 col-sm-3" >
+          <div class="edit-profile">
+             <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
-  </aside>
-
-
-
-  <aside class="aside-02">
-  <div class="row" >
-    <div class="profile-header">
-      <h4> Top artists Listens</h4>
+    <div class="row" >
+      <div class="profile-header artists">
+        <h4> Top artists Listens</h4>
+      </div>
     </div>
-      <ul class="profile-content">
-        <%current_user.artists.first(5).each do |artsist| %>
-          <li><%= artsist.name %></li>
+    <div class="row">
+      <div class="list-artists">
+        <%current_user.artists.first(6).each do |artist| %>
+          <div class="col-xs-6 col-sm-4">
+            <div class="card-artists">
+              <p><%= artist.name %></p>
+            </div>
+          </div>
         <% end %>
-      </ul>
-    <div class="profile-header ">
-      <h4> Top tracks Listens</h4>
-    </div>
-      <ul class="profile-content">
-      <%current_user.tracks.first(10).each do |track| %>
-        <li><%= track.name %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  </aside>
- </div>
-</div>
-
-</div>
-
-
-
-
-
-
-
-<!--
-<div class="body body-home">
-<div class="container-user">
-  <div class="row" >
-    <div class= "header-show">
-       <div class="col-xs-3 col-sm-3">
-
-      </div>
-
-      <div class="col-xs-3 col-sm-6">
-        <div class="description-user">
-          <h3 class="user-name">Hi, <%= current_user.first_name %> !</h3>
-        </div>
-      </div>
-
-      <div class="col-xs-3 col-sm-3">
-        <%= link_to "Edit", edit_user_registration_path, class: "btn btn-primary left-button" %>
       </div>
     </div>
-  </div>
-
-  <div class="row row-image" >
-    <div class= "header-image">
-       <h3>Your music taste</h3>
+    <div class="row" >
+      <div class="profile-header tracks">
+        <h4> Top tracks Listens</h4>
+      </div>
     </div>
-  </div>
-
-  <div class="row" >
-    <div class="profile-header">
-      <h4> Top artists Listens: </h4>
-    </div>
-      <ul class="profile-content">
-        <%current_user.artists.first(5).each do |artsist| %>
-          <li><%= artsist.name %></li>
+    <div class="row" >
+      <div class="list-artists">
+        <%current_user.tracks.first(10).each do |track| %>
+          <div class="col-xs-6 col-sm-6">
+            <div class="card-artists">
+              <p><%= track.name %></p>
+            </div>
+          </div>
         <% end %>
-      </ul>
-    <div class="profile-header ">
-      <h4> Top tracks Listens: </h4>
-    </div>
-      <ul class="profile-content">
-      <%current_user.tracks.first(10).each do |track| %>
-        <li><%= track.name %></li>
-      <% end %>
-    </ul>
-  </div>
-
-   <div class="row" >
-    <div class= "profile-header">
-      <h3>This is your profile</h3>
+      </div>
     </div>
   </div>
-
-  <div class="row" >
-    <div class="profile-content ">
-      <ul>
-        <li> First_name: <%= current_user.first_name %> </li>
-       <li> Gender: <%= current_user.gender %> </li>
-        <li> Description: <%= current_user.description %> </li>
-       <li> Interested in : <%= current_user.description %> </li>
-      </ul>
-    </div>
-  </div>
-
 </div>
 
- -->
+
+
