@@ -1,18 +1,11 @@
 <div class="sidebar-wagon">
   <!-- Logo -->
 
-
-      <div class="sidebar-logo">
-        <%= link_to root_path, id: "logo-container" do %>
-          <%= image_tag "logo.png", height: 50 %>
-        <% end %>
-      </div>
-
       <div class="border"></div>
 
     <div class="sidebar-menu">
       <div class="sidebar-avatar">
-        <%= profile_picture_for(current_user, class: "avatar", id: "navbar-wagon-menu") %>
+        <a href="/profile" class="sidebar-avatar"><%= profile_picture_for(current_user, class: "avatar", id: "navbar-wagon-menu") %></a>
         <div id="user-name-sidebar">
           <%= current_user.first_name %>
         </div>
@@ -34,6 +27,11 @@
     </ul>
     <div class="border-light"></div>
   </div>
+    <div class="sidebar-logo">
+      <%= link_to root_path, id: "logo-container" do %>
+        <%= image_tag "logo.png", height: 50 %>
+      <% end %>
+    </div>
 
 </div>
 

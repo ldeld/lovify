@@ -15,7 +15,6 @@
 }
 
 .border {
-  border-bottom: 2px solid rgba(221, 221, 221, 0.7);
   padding-left: 120px;
   padding-right: 70px;
   margin-bottom: 20px;
@@ -23,7 +22,7 @@
 }
 
 .border-light {
-  border-bottom: 1px solid rgba(221, 221, 221, 0.7);
+  border-bottom: 1px solid $grey-back;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-right: 15px;
@@ -37,14 +36,13 @@
   opacity: 1;
   &:hover {
     color: $purple;
-    opacity: 0.5;
+    opacity: 0.6;
   };
 }
 
 .sidebar-logo{
-  margin-bottom: 5px;
-  margin-top: 25px;
-  margin-right: 5px;
+  position:absolute;
+  bottom: 15px;
   height: 57px;
 }
 
@@ -57,11 +55,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 #user-name-sidebar {
-  color: $white-font;
+  margin-top:14px;
+  font-size:23px;
+  font-weight: lighter;
+  opacity: 0.8;
 }
 
 /* Logo */
@@ -71,28 +72,30 @@
 
 /* User Avatar */
 .sidebar-wagon .avatar {
-  height: 70px;
-  width: 70px;
+  height: 90px;
+  width: 90px;
   object-fit: cover;
   overflow: hidden;
   border-radius: 50%;
 }
 
 .sidebar-link {
-  color: $white-font;
+  color: #999;
+  font-weight:lighter;
 }
 
 .sidebar-link:hover {
-  color: white;
+  color: $purple;
+  opacity: 0.8;
   text-decoration: none;
 }
 
 
 .sidebar-link a {
-  color: $white-font;
+  color: #999;
     &:hover {
-    color: white;
-    opacity: 1;
+    color: $purple;
+    opacity: 0.8;
   };
 }
 
@@ -107,4 +110,7 @@
 
 .sidebar-avatar{
   opacity:1;
+}
+.sidebar-avatar:hover{
+  opacity:0.9;
 }
