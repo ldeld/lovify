@@ -23,7 +23,7 @@
             <h3><%= link_to "See match", match_path(@user) %></h3>
           </div>
           <div class="message-status">
-            Wanna go on a date?
+            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-date" %>
           </div>
         </li>
       <% end %>

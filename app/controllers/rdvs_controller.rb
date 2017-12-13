@@ -14,10 +14,15 @@ class RdvsController < ApplicationController
     match.hide = true
     match.save!
     rdv.save!
-    binding.pry
     redirect_to "/next-match"
   end
 
+  def accept
+    rdv = Rdv.find(params[:id])
+    rdv.update(accepted: true)
+    binding.pry
+    redirect_to rdvs_path
+  end
 
   private
 

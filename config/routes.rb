@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :rdvs, only: [:create]
   end
   resources :rdvs, only: [:index, :show]
+  get '/rdvs/:id/accept', to: 'rdvs#accept', as: "accept_rdv"
   root to: 'pages#home'
   get '/profile', to: 'users#profile'
   get '/next-match', to: "matches#redirect_match"
