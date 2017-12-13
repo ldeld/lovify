@@ -19,7 +19,7 @@
 
           <div class="message-name">
             <h3><%= User.find(rdv_request.asker).first_name %></h3>
-            <h3><%= link_to "See match", match_path(@user) %></h3>
+            <h3><%= link_to "See match", "/matches/:id" %></h3>
           </div>
           <div class="message-status">
             <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-primary" %>
