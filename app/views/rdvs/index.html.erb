@@ -1,0 +1,66 @@
+<div class="container-inbox">
+  <h2>Hi, <%= @user.first_name %>!</h2>
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <h4>They asked you out:</h4>
+    <ul class="inbox">
+      <% @rdvs_requests.each do |rdv_request| %>
+        <li class="message">
+          <% if User.find(rdv_request.asker).photo.path.nil? %>
+            <img src=<%= User.find(rdv_request.asker).spotify_photo %> height="80", width="80", class="avatar" >
+          <% else %>
+            <%= cl_image_tag User.find(rdv_request.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
+          <% end %>
+
+          <div class="message-name">
+            <h3><%= User.find(rdv_request.asker).first_name %></h3>
+            <h3><%= link_to "See match", match_path(@user) %></h3>
+          </div>
+          <div class="message-status">
+            Wanna go on a date?
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <h4>You've matched:</h4>
+    <ul class="inbox">
+      <% @rdvs_done.each do |rdv_done| %>
+        <li class="message">
+
+          <% if rdv_done.asker == @user.id %>
+            <% if User.find(rdv_done.receiver).photo.path.nil? %>
+              <%= image_tag User.find(rdv_done.receiver).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
+            <% else %>
+              <%= cl_image_tag User.find(rdv_done.receiver).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
+            <% end %>
+
+          <div class="message-name">
+            <h3><%= User.find(rdv_done.receiver).first_name %></h3>
+          </div>
+
+
+          <% else %>
+
+            <% if User.find(rdv_done.asker).photo.path.nil? %>
+              <%= image_tag User.find(rdv_done.asker).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
+            <% else %>
+              <%= cl_image_tag User.find(rdv_done.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
+              <% end %>
+
+          <div class="message-name">
+            <h3><%= User.find(rdv_done.asker).first_name %></h3>
+          </div>
+
+          <% end %>
+
+
+          <div class="message-status">
+            What next?
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

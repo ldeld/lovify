@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :matches do
   resources :rdvs, only: [:create]
   end
+  resources :rdvs, only: [:index, :show]
   root to: 'pages#home'
   get '/profile', to: 'users#profile'
   get '/next-match', to: "matches#redirect_match"
