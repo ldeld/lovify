@@ -11,12 +11,7 @@
       <ul class="inbox">
       <% @rdvs_requests.each do |rdv_request| %>
         <li class="message">
-          <% if User.find(rdv_request.asker).photo.path.nil? %>
-            <img src=<%= User.find(rdv_request.asker).spotify_photo %> height="80", width="80", class="avatar" >
-          <% else %>
-            <%= cl_image_tag User.find(rdv_request.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-          <% end %>
-
+          <%= profile_picture_for(User.find(rdv_request.asker), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">
             <h3><%= User.find(rdv_request.asker).first_name %></h3>
             <h3><%= link_to "See match", "/matches/:id" %></h3>
@@ -35,13 +30,8 @@
       <ul class="inbox">
       <% @rdvs_done.each do |rdv_done| %>
         <li class="message">
-          <% if rdv_done.asker == @user %>
-            <% if User.find(rdv_done.receiver).photo.path.nil? %>
-              <%= image_tag User.find(rdv_done.receiver).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-            <% else %>
-              <%= cl_image_tag User.find(rdv_done.receiver).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-            <% end %>
-
+          <% if rdv_done.asker == @user.id %>
+            <%= profile_picture_for(User.find(rdv_done.receiver), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">
             <h3><%= User.find(rdv_done.receiver).first_name %></h3>
           </div>
@@ -49,11 +39,7 @@
 
           <% else %>
 
-            <% if User.find(rdv_done.asker).photo.path.nil? %>
-              <%= image_tag User.find(rdv_done.asker).spotify_photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-            <% else %>
-              <%= cl_image_tag User.find(rdv_done.asker).photo, height: 80, width: 80, crop: :fill, gravity: :face, class: "avatar" %>
-              <% end %>
+            <%= profile_picture_for(User.find(rdv_done.asker), height: 80, width: 80, class: "avatar") %>
 
           <div class="message-name">
             <h3><%= User.find(rdv_done.asker).first_name %></h3>
