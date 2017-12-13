@@ -5,7 +5,6 @@
 
   <div class="ui segment">
     <% if @messages.first.id.nil? %>
-      <% binding.pry %>
       <p>There are no messages between you yet. Don't be shy, say hello!</p>
     <% end %>
     <% @messages.each do |message| %>
