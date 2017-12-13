@@ -11,10 +11,10 @@
           <%= profile_picture_for(User.find(user), class: "profile-picture") %>
         </div>
         <div class="matchistics">
-          <h3>Matchistics: <%= @match.score %></h3>
+          <h3>Matchistics: <%= @match.score.round %> %</h3>
           <h4> You have <%= @match.artist_listen_in_commons.length %> artists in common </h4>
           <% unless @match.track_listen_in_commons.empty? %>
-            <h4>And there are <%= @match.track_listen_in_commons.length %> tracks you both like! </h4>
+            <h4>and there's <%= @match.track_listen_in_commons.length %> tracks you both like! </h4>
           <% end %>
           <%= link_to "See full details", "#", class: "btn btn-primary", id: "show-more-info", onclick: "triggerIn()" %>
         </div>
@@ -27,7 +27,12 @@
     <div class="card" >
 <!--       <div class="animated fadeInRight">
       <div class="card scrollable hidden" id="more-info"> -->
-      <h4>Artists in common: </h4>
+      <% if user.description.present? %>
+        <h4>About <%= user.first_name%>: </h4>
+        <%= user.description %>
+      <% end %>
+
+      <h4>Top artists in common: </h4>
 
       <% if @match.artist_listen_in_commons.length < 5 %>
         <% @match.artist_listen_in_commons.each do |a_in_common| %>
@@ -44,7 +49,7 @@
         </div>
       <% end %>
       <% unless @match.track_listen_in_commons.empty? %>
-        <h4>Tracks you both like: </h4>
+        <h4>Top tracks you both listen to: </h4>
         <% if @match.track_listen_in_commons.length < 5 %>
           <% @match.track_listen_in_commons.each do |tr_in_common| %>
             <p><%= tr_in_common.track.name %></p>
@@ -67,7 +72,7 @@
           <%= f.collection_radio_buttons :bar_id, bars, :id, :name  %>
           <% if @match.asker.nil? %>
             <%= f.submit "Ask out!", class: "btn btn-date"%>
-          <% else %>
+            <% else %>
             <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn btn-date" %>
           <% end %>
         <% end %>
