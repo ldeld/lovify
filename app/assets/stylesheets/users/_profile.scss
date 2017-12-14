@@ -158,6 +158,12 @@
   border-radius: 3px;
 }
 
+.truncate{
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .header-image{
   background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 50%),url("https://images.pexels.com/photos/290657/pexels-photo-290657.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
   position:relative;

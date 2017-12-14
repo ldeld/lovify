@@ -37,7 +37,7 @@
         <%current_user.artists.first(6).each do |artist| %>
           <div class="col-xs-6 col-sm-4">
             <div class="card-artists">
-              <p><%= artist.name %></p>
+              <p class="truncate"><%= artist.name %></p>
             </div>
           </div>
         <% end %>
@@ -53,7 +53,7 @@
         <%current_user.tracks.first(10).each do |track| %>
           <div class="col-xs-6 col-sm-6">
             <div class="card-artists">
-              <p><%= track.name %></p>
+              <p class="truncate"><%= track.name %></p>
             </div>
           </div>
         <% end %>
