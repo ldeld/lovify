@@ -9,12 +9,12 @@
           <%= profile_picture_for(User.find(user), class: "profile-picture") %>
         </div>
         <div class="matchistics">
-          <h3>Matchistics: <%= @match.score.round %> %</h3>
+          <h3>Matchistics <%= @match.score.round %> <%= image_tag 'logo-seul.png', class: "match-logo" %></h3>
           <h4> You have <%= @match.artist_listen_in_commons.length %> artists in common </h4>
           <% unless @match.track_listen_in_commons.empty? %>
             <h4>and there's <%= @match.track_listen_in_commons.length %> tracks you both like! </h4>
           <% end %>
-          <%= link_to "See full details", "#", class: "btn btn-primary", id: "show-more-info", onclick: "triggerIn()" %>
+          <%= link_to "More", "#", class: "btn btn-primary", id: "show-more-info", onclick: "triggerIn()" %>
         </div>
       </div>
     </div>
@@ -26,43 +26,82 @@
       <div class="card scrollable hidden" id="more-info"> -->
 
       <% if user.description.present? %>
-        <h4>About <%= user.first_name%>: </h4>
-        <%= user.description %>
-      <% end %>
-
-      <h4>Top artists in common: </h4>
-      <% if @match.artist_listen_in_commons.length < 5 %>
-        <% @match.artist_listen_in_commons.each do |a_in_common| %>
-          <p><%= a_in_common.artist.name %></p>
-        <% end %>
-      <% else %>
-        <% @match.artist_listen_in_commons.first(5).each do |a_in_common| %>
-          <p class="show-content"><%= a_in_common.artist.name %></p>
-        <% end %>
-        <div id="artist-list" class="hidden">
-          <% @match.artist_listen_in_commons.drop(5).each do |a_in_common| %>
-            <p><%= a_in_common.artist.name %></p>
-          <% end %>
+        <h5>About <%= user.first_name%></h5>
+        <div class="row" >
+          <div class="list-artists">
+            <div class="col-xs-12">
+              <div class="card-artists">
+                <p><%= user.description %></p>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
-      <% unless @match.track_listen_in_commons.empty? %>
-        <h4>Top tracks you both listen to: </h4>
-        <% if @match.track_listen_in_commons.length < 5 %>
-          <% @match.track_listen_in_commons.each do |tr_in_common| %>
-            <p><%= tr_in_common.track.name %></p>
-          <% end %>
-        <% else %>
-          <% @match.track_listen_in_commons.first(5).each do |tr_in_common| %>
-            <p class="show-content"><%= tr_in_common.track.name %></p>
-          <% end %>
-          <div id="track-list" class="hidden">
-            <% @match.track_listen_in_commons.drop(5).each do |tr_in_common| %>
-              <p><%= tr_in_common.track.name %></p>
+
+      <h5>Top artists in common</h5>
+
+      <div class="row" >
+        <div class="list-artists">
+          <% if @match.artist_listen_in_commons.length < 5 %>
+            <%@match.artist_listen_in_commons.first(5).each do |a_in_common| %>
+              <div class="col-xs-12">
+                <div class="card-artists">
+                  <p class="truncate list-in-common"><%= a_in_common.artist.name %></p>
+                </div>
+              </div>
             <% end %>
-          </div>
-          <a href="#" id="show-full-list">Show all</a>
-        <% end %>
-      <% end %>
+          <% else %>
+            <% @match.artist_listen_in_commons.first(5).each do |a_in_common| %>
+              <div class="col-xs-12">
+                <div class="card-artists">
+                  <p class="truncate show-content list-in-common"><%= a_in_common.artist.name %></p>
+                </div>
+              </div>
+            <% end %>
+            <div id="artist-list" class="hidden">
+              <% @match.artist_listen_in_commons.drop(5).each do |a_in_common| %>
+                <div class="col-xs-12">
+                  <div class="card-artists">
+                    <p class="truncate list-in-common"><%= a_in_common.artist.name %></p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row" >
+        <div class="list-artists">
+          <% unless @match.track_listen_in_commons.empty? %>
+            <h5>Top tracks you both listen to</h5>
+            <% if @match.track_listen_in_commons.length < 5 %>
+              <% @match.track_listen_in_commons.each do |tr_in_common| %>
+                <div class="col-xs-12">
+                    <div class="card-artists">
+                      <p class="truncate list-in-common"><%= tr_in_common.track.name %></p>
+                    </div>
+                  </div>
+                <% end %>
+            <% else %>
+              <% @match.track_listen_in_commons.first(5).each do |tr_in_common| %>
+                <div class="col-xs-12">
+                  <div class="card-artists">
+                    <p class="show-content truncate list-in-common"><%= tr_in_common.track.name %></p>
+                  </div>
+                </div>
+              <% end %>
+              <div id="track-list" class="hidden">
+                <% @match.track_listen_in_commons.drop(5).each do |tr_in_common| %>
+                  <div class="col-xs-12">
+                    <div class="card-artists">
+                      <p class="truncate list-in-common"><%= tr_in_common.track.name %></p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+              <a href="#" id="show-full-list">Show all</a>
+            <% end %>
+          <% end %>
         <div class="date-btns">
         <%= link_to "Dates", "#", class: "btn btn-primary", id: "show-dates", onclick: "triggerInTwo()" %>
         <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
@@ -86,7 +125,7 @@
       <div id="menu">
           <% @match.bars.uniq.first(3).each_with_index do |bar, index| %>
         <div class="bars">
-          <div id="name-bar" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 50%), url('<%= cl_image_path bar.photo %>'); background-size: cover;">
+          <div id="name-bar" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 50%), url('<%= cl_image_path bar.photo %>'); background-size: cover; border-radius: 3px;">
             <h2><%= bar.name %></h2>
             <h3><%= bar.address %></h3>
             <%= image_tag "scroll-down.png", height: 30 %>

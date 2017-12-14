@@ -1,11 +1,26 @@
+body{
+  font-weight: lighter;
+}
+
+.match-logo{
+  height:40px;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
+
+.match-logo{
+  height:40px;
+  opacity: 0.7;
+  margin-bottom: 7px;
+}
 
 #menu {
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 46%;
+  top: 43.9%;
   left: 50%;
-  width: 80%;
+  width: 80.7%;
   height: 94vh;
   /* note: the translateZ(0) enables hardware accel */
   /* without it, there is a weird gap between panels */
@@ -22,13 +37,14 @@
 }
 
 .bars {
+  padding:0;
   position: relative;
   flex-grow: 1;
-  transition: all $animation-time ease;
+  transition: all 0.8s ease;
   transition-delay: 0s;
   #name-bar, #address-bar, #description-bar{
     position: absolute;
-    transition: all $animation-time ease;
+    transition: all 0.8s ease;
     transition-delay: 0;
   }
   &:last-child {
@@ -45,11 +61,11 @@
 }
 
 .bars:hover {
-   background-color: $grey-back;
+   background-color: $grey-card;
   flex-grow: 8;
   #description-bar {
     opacity: 1;
-    transition-delay: $animation-time;
+    transition-delay: 0.15s;
   }
 }
 
@@ -95,7 +111,7 @@
 }
 
 #description-bar {
-  background-color: $grey-back;
+  background-color: $grey-card;
     position: absolute;
     top: 40%;
     width: 100%;
@@ -107,10 +123,10 @@
     stroke-linejoin: round;
     stroke-linecap: round;
     opacity: 0;
-    transition: all $animation-time ease;
+    transition: all 0s ease;
     transition-delay: 0s;
     p {
-      font-size: 13px;
+      font-size: 17px;
       padding-top: 15px;
       padding-right: 6px;
       padding-left: 4px;
@@ -128,7 +144,7 @@
   }
   img {
     opacity: 0.6;
-    margin-top: 10%;
+    margin-top: 18%;
   }
 }
 
@@ -152,11 +168,11 @@
 }
 .flybox-wrap {
   position: absolute;
-  top: 0%;
+  top: 2%;
   right: 0;
   z-index: 2;
   padding: 60px;
-  padding-top: 13px;
+  padding-top: 0px;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
   transition: all 1s ease;
@@ -225,35 +241,72 @@
   text-align: center;
   box-shadow: 0 0 8px rgba(37, 37, 37, 0.4);
   p {
-    margin-left: 20px;
     text-align: left;
   }
   h2 {
+    font-family: $body-font;
+    color:#aaa;
+    font-weight: lighter;
     font-size: 30px;
+  }
+  h3 {
+    font-family: $body-font;
+    color:#aaa;
+    font-weight: lighter;
+    font-size: 28px;
+  }
+  h4 {
+    font-family: $body-font;
+    color:#aaa;
+    font-weight: lighter;
+    font-size: 24px;
+  }
+  h5 {
+    font-family: $body-font;
+    color:#aaa;
+    font-weight: lighter;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 5px;
   }
 }
 
 .flybox-wrap .card {
   padding-top: 25px;
+  color:#999;
 }
 
 
 #show-more-info {
-  margin-top: 15px;
+  color: #ddd;
+  margin-top: 25px;
+  &:hover{
+    color:#ddd;
+  }
 }
 
 .profile-picture {
   object-fit: cover;
   width: 300px;
   height: 300px;
-  margin: 0 auto;
+  margin: 15px auto 5px auto;
   border-radius: 3px;
   box-shadow: 0 0 8px rgba(70,70,70,0.2);
 }
 
 
 .matchistics {
-  padding: 0 40px;
+  color:#888;
+  font-size: 28px;
+  text-align:center;
+  padding: 20px;
+}
+
+.in-common {
+  color:#888;
+  font-size: 24px;
+  text-align:center;
+  padding: 20px;
 }
 
 .hidden {
@@ -270,15 +323,16 @@
 }
 
 .btn-not {
-  font-size: 13px;
-  color: white;
-  background-color: black;
-  opacity: 0.7;
-  padding: 10px;
+  font-size: 15px;
+  color: $white-font;
+  background-color: #111;
+  padding: 13px;
+  padding-bottom: 18px;
+  opacity: 1;
+  z-index:2;
     &:hover {
-      color: white;
-      background-color: black;
-      opacity: 0.8;
+      color: $white-font;
+      background-color: #161616;
     }
 }
 
@@ -287,7 +341,8 @@
   font-size: 13px;
   color: white;
   background-color: #a0067f;
-  opacity: 0.6;
+  opacity: 0.8;
+  margin-bottom: 10px;
     &:hover {
       color: white;
       background-color: #a0067f;
