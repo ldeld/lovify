@@ -86,12 +86,13 @@
 }
 
 #description-bar {
+  background-color: $grey-back;
     position: absolute;
-    left: 2vh;
     top: 40%;
     width: 100%;
     margin-top: -10vh;
     height: 25vh;
+    padding-left: 2vh;
     fill: none;
     stroke-width: 2%;
     stroke-linejoin: round;
@@ -101,6 +102,7 @@
     transition-delay: 0s;
     p {
       font-size: 13px;
+      padding-top: 15px;
       padding-right: 6px;
       padding-left: 4px;
       padding-bottom: 5%;
@@ -109,11 +111,15 @@
 
 
 #name-bar{
-  padding-bottom: 1%;
+  padding-bottom: 2%;
   width: 100%;
   background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 50%),url("https://www.lyonresto.com/contenu/bandeau/musique_live.jpg");
   h2 {
     margin-top: 4%;
+  }
+  img {
+    opacity: 0.6;
+    margin-top: 10%;
   }
 }
 
