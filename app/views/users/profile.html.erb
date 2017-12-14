@@ -5,11 +5,7 @@
     <div class="row">
       <div class="profile">
         <div class="col-xs-4 col-sm-3">
-          <% if current_user.photo.path.nil? || current_user.photo.nil? %>
-            <img src=<%= current_user.spotify_photo %> class="profile-image" >
-          <% else %>
-            <%= cl_image_tag current_user.photo, crop: :fill, class: "profile-image" %>
-          <% end %>
+          <%= profile_picture_for(current_user, class: "profile-image") %>
         </div>
         <div class="col-xs-6 col-sm-6" >
           <div class="about">
