@@ -2,9 +2,19 @@
   background-color: #212121;
 }
 
+h1{
+  font-family: $body-font;
+  font-weight:lighter;
+}
+
 h2 {
   text-align: center;
   margin: 30px;
+  font-family: $body-font;
+}
+
+.no-file{
+  margin-bottom:80px;
 }
 
 .form-actions {
@@ -16,12 +26,12 @@ h2 {
 }
 
 .link-edit{
-  color: black;
-  opacity: 0.5;
+  color: $white-font;
+  opacity: 0.8;
 }
 
 .link-edit:hover {
-  color: black;
+  color: $white-font;
   opacity: 1;
 }
 
@@ -97,11 +107,13 @@ a:hover {
     display: block;
     margin-top: 2px;
 }
-.form-style-10 label{
+.form-style-10 label {
     display: block;
-    color: #888;
-    padding-top: 7px;
+    color: $white-font;
+    padding-top: 0;
+    padding-right: 20px;
     margin-bottom: 15px;
+    font-weight: lighter;
 }
 
 .form-style-10 select {
@@ -121,7 +133,7 @@ a:hover {
 }
 
 .form-style-10 .section{
-    margin-bottom: 5px;
+    margin-bottom: 13px;
 }
 .form-style-10 .section span {
     background: #963689;
