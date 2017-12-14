@@ -29,9 +29,12 @@
       <%= f.text_area :body, class: "form-control message-area" %>
     </div>
       <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <div>
+    <div class="message-btns">
       <%= f.submit "Send message", class: "btn btn-primary" %>
+      <p>or</p>
+      <%= link_to "Back to messages", conversations_path %>
     </div>
-
+    <div>
+    </div>
   <% end %>
 </div>
