@@ -46,7 +46,11 @@ class MatchesController < ApplicationController
   private
 
   def set_match
-    @match = user_matches.first
+    if Rdv.where(match_id: params[:id]).present?
+      @match = Match.find(params[:id])
+    else
+      @match = user_matches.first
+    end
   end
 
   def match_params

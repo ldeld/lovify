@@ -1,9 +1,9 @@
 <div class="main">
-  <h2>Hi, <%= @user.first_name %>!</h2>
+  <p class= "dates-title">My matches & dates</p>
   <div class="tab-container">
       <div class="tab-bar">
-        <a href="#Requests" class="tab is-active" data-tab="tab-1">Requests</a>
-        <a href="#Matches" class="tab" data-tab="tab-2">Matches</a>
+        <a href="#Requests" class="tab is-active" data-tab="tab-1">Matches</a>
+        <a href="#Matches" class="tab" data-tab="tab-2">Dates</a>
       </div>
     </div>
     <div class="tab-content is-active" id="tab-1">
@@ -13,12 +13,17 @@
         <li class="message">
           <%= profile_picture_for(User.find(rdv_request.asker), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">
-            <h3><%= User.find(rdv_request.asker).first_name %></h3>
-            <h3><%= link_to "See match", "/matches/:id" %></h3>
+            <%= User.find(rdv_request.asker).first_name %>
+            <br/><%= link_to "View match", "/matches/#{rdv_request.match_id}" %>
           </div>
-          <div class="message-status">
-            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-primary" %>
+          <div class="message-stats">
+            <%= rdv_request.match.score.round %> %
           </div>
+          <div class="message-bar">
+            <%= Bar.find(rdv_request.bar_id).name %>
+            <br/><%= link_to "View bar", "/matches/#{rdv_request.match_id}" %>
+          </div>
+            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-primary btn-accept" %>
         </li>
       <% end %>
     </ul>
@@ -33,24 +38,39 @@
           <% if rdv_done.asker == @user.id %>
             <%= profile_picture_for(User.find(rdv_done.receiver), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">
-            <h3><%= User.find(rdv_done.receiver).first_name %></h3>
+            <%= User.find(rdv_done.receiver).first_name %>
+            <br/><%= link_to "View match", "/matches/#{rdv_done.match_id}" %>
+          </div>
+          <div class="message-stats">
+            <%= rdv_done.match.score.round %> %
+          </div>
+          <div class="message-bar">
+            <%= Bar.find(rdv_done.bar_id).name %>
+            <br/><%= link_to "View bar", "/matches/#{rdv_done.match_id}" %>
           </div>
 
 
           <% else %>
 
             <%= profile_picture_for(User.find(rdv_done.asker), height: 80, width: 80, class: "avatar") %>
-
           <div class="message-name">
-            <h3><%= User.find(rdv_done.asker).first_name %></h3>
+            <%= User.find(rdv_done.asker).first_name %>
+            <br/><%= link_to "View match", "/matches/#{rdv_done.match_id}" %>
+          </div>
+          <div class="message-stats">
+            <%= rdv_done.match.score.round %> %
+          </div>
+          <div class="message-bar">
+            <%= Bar.find(rdv_done.bar_id).name %>
+            <br/><%= link_to "View bar", "/matches/#{rdv_done.match_id}" %>
           </div>
 
           <% end %>
 
 
-          <div class="message-status">
-            <%= link_to "Send a message", conversation_messages_path(rdv_done.conversation) %>
-          </div>
+            <%= link_to "Send message", conversation_messages_path(rdv_done.conversation), class: "btn btn-primary btn-accept" %>
+
+
         </li>
       <% end %>
     </ul>
