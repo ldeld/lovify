@@ -20,6 +20,18 @@ module ApplicationHelper
     return count
   end
 
+  def unread_conversation_messages(conversation)
+    if conversation.messages.last
+      count = 0
+      i = conversation.messages.count - 1
+      until conversation.messages[i].user_id == current_user.id || conversation.messages[i].read || i == -1
+        count += 1
+        i -= 1
+      end
+    end
+    return count
+  end
+
   def request_count
     requests = Rdv.where(receiver_id: current_user.id).where(accepted: false)
     requests.count
