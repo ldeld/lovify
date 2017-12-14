@@ -36,7 +36,6 @@
         <% end %>
       <% @rdvs_done.each do |rdv_done| %>
         <li class="message">
-          <% binding.pry %>
           <% if rdv_done.asker_id == @user.id %>
             <%= profile_picture_for(User.find(rdv_done.receiver), height: 80, width: 80, class: "avatar") %>
           <div class="message-name">
