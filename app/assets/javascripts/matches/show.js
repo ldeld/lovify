@@ -5,7 +5,7 @@ var profileCard = document.getElementById("profile-card");
 var card = document.querySelector(".card");
 var infoCard = document.getElementById("more-info");
 var dateCard = document.querySelector(".date-card");
-var bar = document.querySelector(".show_bar")
+
 
 
 
@@ -24,9 +24,11 @@ function triggerIn() {
 
 };
 
-function triggerIn() {
-  bar.setAttribute("class", "card animated slideOutLeft");
+function triggerInTwo() {
+  card.setAttribute("class", "card animated slideOutLeft");
   document.querySelector("#off").setAttribute("id", "on");
+
+  showMoreInfo.classList.add("hidden")
 
   // var x = document.createElement("div");
   // x.setAttribute("class", "fade");
@@ -37,11 +39,6 @@ function triggerIn() {
 
 };
 
-
-function triggerInTwo() {
-  card.setAttribute("class", "card animated slideOutLeft");
-  document.querySelector("#off").setAttribute("id", "on");
-}
 
 
 $('.bars').click(function() {

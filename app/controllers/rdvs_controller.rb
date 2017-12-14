@@ -3,7 +3,7 @@ class RdvsController < ApplicationController
     @user = current_user
     @rdvs_done = Rdv.where(receiver_id: @user.id).where(accepted: true) + Rdv.where(asker_id: @user.id).where(accepted: true)
     @rdvs_requests = @user.rdvs.where(receiver: current_user, accepted: false)
-end
+  end
 
   def create
     rdv = Rdv.new(rdv_params)
