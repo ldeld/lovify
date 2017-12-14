@@ -1,3 +1,5 @@
+<% markers = bar.build_markers %>
+<% binding.pry %>
 
 <div id="map" style="width: 95%; height: 30vh; margin-top: 5px; margin-bottom: 20px;"></div>
 
@@ -5,7 +7,7 @@
   <%= javascript_tag do %>
     var handler = Gmaps.build('Google');
     handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      markers = handler.addMarkers(<%= raw markers.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
       if (markers.length == 0) {

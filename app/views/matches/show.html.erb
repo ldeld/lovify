@@ -84,17 +84,18 @@
   <div class="flybox-wrap" id="off">
     <div class="card date-card">
       <div id="menu">
+          <% @match.bars.first(3).each do |bar| %>
         <div class="bars">
           <div id="name-bar">
-            <h2>Bar name</h2>
-            <h3>Bar address</h3>
+            <h2><%= bar.name %></h2>
+            <h3><%= bar.address %></h3>
             <%= image_tag "scroll-down.png", height: 30 %>
           </div>
           <div id="description-bar">
             <p>
-              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
+              <%= bar.description %>
             </p>
-            <%= render 'bars/show' %>
+            <%= render partial: 'bars/show', locals: {bar: bar } %>
             <% if @match.asker.nil? %>
               <%= link_to "Ask out!", class: "btn-date"%>
             <% else %>
@@ -102,43 +103,8 @@
             <% end %>
           </div>
         </div>
-        <div class="bars">
-          <div id="name-bar">
-            <h2>Bar name</h2>
-            <h3>Bar address</h3>
-           <%= image_tag "scroll-down.png", height: 30 %>
-          </div>
-           <div id="description-bar">
-            <p>
-              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
-            </p>
-            <%= render 'bars/show' %>
-            <% if @match.asker.nil? %>
-              <%= link_to "Ask out!", class: "btn-date"%>
-            <% else %>
-              <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn-date" %>
-            <% end %>
-          </div>
-        </div>
-        <div class="bars">
-         <div id="name-bar">
-            <h2>Bar name</h2>
-            <h3>Bar address</h3>
-           <%= image_tag "scroll-down.png", height: 30 %>
-          </div>
-          <div id="description-bar">
-            <p>
-              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
-            </p>
-            <%= render 'bars/show', class: "show-map" %>
-            <% if @match.asker.nil? %>
-              <%= link_to "Ask out!", class: "btn-date"%>
-            <% else %>
-              <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn-date" %>
-            <% end %>
-          </div>
-        </div>
-        </div>
+          <% end  %>
+
       </div>
     </div>
   </div>
