@@ -16,7 +16,7 @@
         <div class="border-light"></div>
       <li><%= link_to "Start matching", "/next-match", class: "sidebar-link" %></li>
         <div class="border-light"></div>
-      <li><%= link_to "Messages", conversations_path, class: "sidebar-link" %> (<%= unread_messages_count %>)</li>
+      <li><%= link_to "Messages", conversations_path, class: "sidebar-link" %> <% unless unread_messages_count == 0  %>(<%= unread_messages_count %>)</li><% end %>
         <div class="border-light"></div>
       <li><%= link_to "Dates", rdvs_path, class: "sidebar-link" %></li>
       <div class="border-light"></div>
