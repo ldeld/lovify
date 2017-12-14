@@ -3,14 +3,21 @@
 .main {
   width: calc(100vw - 26%);
   margin-left: 22%;
-  margin-top: 10px;
+  margin-top: 40px;
+}
+
+.dates-title{
+  font-size:30px;
+  font-weight:lighter;
+  color:#c6c6c6;
+  text-align:center;
 }
 
 .tab-container {
-  padding-top: 40px;
+  padding-top: 0px;
   margin:auto;
   margin-top:40px;
-  border-radius: 0px 0px 3px 3px;
+  margin-left:20px;
   position: relative;
   width: 90%;
 }
@@ -21,7 +28,7 @@
   margin-bottom: 24px;
   a{
     text-decoration: none;
-    color: $white-font;
+    color: #555;
   }
   &:hover{
     color: white;
@@ -43,7 +50,7 @@
 }
 
 .tab.is-active {
-  color: #555;
+  color: $white-font;
   opacity: 1;
   transition: opacity .3s linear;
   border-bottom: 2px solid $purple;
@@ -90,23 +97,48 @@
 }
 
 .message {
-  padding:20px 20px 20px 20px;
+  font-weight:lighter;
+  padding:30px 20px 30px 20px;
   display:flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom:1px solid #eeeeee;
+  border-bottom:1px solid #333;
+  .avatar{
+    border-radius:50%;
+    height:100px;
+    width:100px;
+  }
+}
+
+.message:first-child{
+  padding:10px 20px 30px 20px;
 }
 
 .message-name{
   position:absolute;
-  padding-left:110px;
-  padding-bottom:20px;
+  margin-left:200px;
+  padding-bottom:-10px;
   min-width: auto;
-  h3{
+  p{
     font-size: 13px;
-    line-height:9px;
-    margin-bottom: 0px;
+    font-weight: lighter;
+    line-height:7px;
+    opacity: 0.6;
   };
+  a{
+    color:#999;
+    line-height:40px;
+    &:hover{
+      color:$purple;
+    }
+  }
+}
+
+.message-stats{
+  position:absolute;
+  margin-left:400px;
+  padding-bottom:-10px;
+  min-width: auto;
   p{
     font-size: 13px;
     font-weight: lighter;
@@ -115,12 +147,30 @@
   };
 }
 
-.message-status{
-  padding-top:15px;
-  font-size: 14px;
-  font-weight: bold;
-  min-width: 60px;
+.message-bar{
+  position:absolute;
+  margin-left:600px;
+  padding-bottom:-10px;
+  min-width: auto;
+  p{
+    font-size: 13px;
+    font-weight: lighter;
+    line-height:7px;
+    opacity: 0.6;
+  };
+  a{
+    color:#999;
+    line-height:40px;
+    &:hover{
+      color:$purple;
+    }
+  }
 }
+
+.btn-accpet{
+  padding-bottom:10px;
+}
+
 
 .container-inbox{
   margin-left: 20%;
