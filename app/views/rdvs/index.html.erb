@@ -23,7 +23,7 @@
             <%= Bar.find(rdv_request.bar_id).name %>
             <br/><%= link_to "View bar", "#", onclick: "triggerInTwo()" %>
           </div>
-            <%= link_to "Accept Date", accept_rdv_path(rdv_request), class: "btn btn-primary btn-accept" %>
+            <%= link_to "Accept", accept_rdv_path(rdv_request), class: "btn btn-primary btn-accept" %>
         </li>
       <% end %>
     </ul>
