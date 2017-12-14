@@ -24,10 +24,19 @@
           </div>
           <div class="message-bar">
             <%= Bar.find(rdv_request.bar_id).name %>
-            <br/><%= link_to "View bar", "#", onclick: "triggerInTwo()" %>
+            <br/><div class="linktbar"><p>View bar</p></div>
           </div>
             <%= link_to "Accept", accept_rdv_path(rdv_request), class: "btn btn-primary btn-accept" %>
         </li>
+
+      <div class="pop-up">
+        <span>x</span>
+        <div class="pop-up-text">
+        <% @bar = Bar.find(rdv_request.bar_id)%>
+        <%= render "shared/show_bar" %>
+      </div>
+    </div>
+
       <% end %>
     </ul>
     </div>
@@ -51,7 +60,7 @@
           </div>
           <div class="message-bar">
             <%= Bar.find(rdv_done.bar_id).name %>
-            <br/><%= link_to "View bar", "#", onclick: "triggerInTwo()" %>
+            <br/><div class="linktbar"><p>View bar</p> </div>
           </div>
 
 
@@ -67,7 +76,7 @@
           </div>
           <div class="message-bar">
             <%= Bar.find(rdv_done.bar_id).name %>
-            <br/><%= link_to "View bar", "#", onclick: "triggerInTwo()" %>
+            <br/><div class="linktbar"><p>View bar</p> </div>
           </div>
 
           <% end %>
@@ -75,12 +84,19 @@
 
             <%= link_to "Send message", conversation_messages_path(rdv_done.conversation), class: "btn btn-primary btn-accept" %>
 
-
         </li>
-      <% end %>
-    </ul>
+
+      <div class="pop-up">
+        <span>x</span>
+        <div class="pop-up-text">
+        <% @bar = Bar.find(rdv_done.bar_id)%>
+        <%= render "shared/show_bar" %>
+      </div>
     </div>
 
-  </div>
+    <% end %>
+  </ul>
+</div>
+
 
 
