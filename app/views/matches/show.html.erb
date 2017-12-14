@@ -95,7 +95,12 @@
             <p>
               <%= bar.description %>
             </p>
-              <%= link_to "Ask out!", class: "btn-date"%>
+
+
+              <%= simple_form_for [@match, @rdv] do |f| %>
+                <%= f.input :bar_id, as: :hidden, input_html: {value: bar.id} %>
+                <%= f.submit "Ask out!", class: "btn btn-date"%>
+                  <% end %>
               <%= render partial: 'bars/show', locals: {bar: bar, map_id: index + 1} %>
           </div>
         </div>
