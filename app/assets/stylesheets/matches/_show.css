@@ -323,6 +323,7 @@ body{
 }
 
 .btn-not {
+  margin-right:2px;
   font-size: 15px;
   color: $white-font;
   background-color: #111;
@@ -336,6 +337,29 @@ body{
     }
 }
 
+.btn-not-first {
+  margin-top:10px;
+  margin-left:2px;
+  font-size: 18px;
+  color: $white-font;
+  background-color: #111;
+  padding: 6px 12px;
+  opacity: 1;
+  z-index:2;
+    &:hover {
+      color: $white-font;
+      background-color: #161616;
+    }
+}
+
+
+#show-dates{
+  margin-top:10px;
+  margin-left:2px;
+  font-size: 18px;
+  margin-top:10px;
+  padding: 6px 12px;
+}
 
 .btn-date {
   font-size: 13px;
