@@ -37,8 +37,8 @@
             <div class="inner-wrap">
               <div class="display-photo">
                 <%= profile_picture_for(current_user, class: "image-edit") %>
-                <%= f.input :photo, label: "Do you want to change you profile picture?"  %>
-                <%= f.input :photo_cache, as: :hidden %>
+                <%= f.input :photo, label: "Do you want to change you profile picture?", class: "no-file" %>
+                <%= f.input :photo_cache, as: :hidden%>
               </div>
             </div>
 
@@ -58,12 +58,11 @@
             </div>
           <% end %>
 
-          <div class="section end-section">Cancel my account</div>
+          <div class="section end-section"><span>4</span>Unhappy?</div>
           <div class="inner-wrap">
-          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), class: "link-edit", data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p><%= link_to "Cancel my account", registration_path(resource_name), class: "link-edit", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
         </div>
-        <%= link_to "Back", :back, class: "link-edit" %>
       </div>
     </div>
   </div>
