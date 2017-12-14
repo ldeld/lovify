@@ -102,7 +102,7 @@
           <% end %>
         <div class="date-btns">
         <%= link_to "Dates", "#", class: "btn btn-primary", id: "show-dates", onclick: "triggerInTwo()" %>
-        <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
+        <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not-first" %>
 
 
         <%# link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :patch, class: "btn btn-not" %>
