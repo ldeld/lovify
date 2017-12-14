@@ -5,10 +5,10 @@ class User < ApplicationRecord
   has_many :artists, through: :artist_listens
   has_many :track_listens, dependent: :destroy
   has_many :tracks, through: :track_listens
-  has_many :matches, foreign_key: :user_1_id, dependent: :destroy
-  has_many :matches, foreign_key: :user_2_id, dependent: :destroy
-  has_many :rdvs, foreign_key: :asker_id, dependent: :destroy
-  has_many :rdvs, foreign_key: :receiver_id, dependent: :destroy
+  # has_many :matches, foreign_key: :user_1_id, dependent: :destroy
+  # has_many :matches, foreign_key: :user_2_id, dependent: :destroy
+  # has_many :rdvs, foreign_key: :asker_id, dependent: :destroy
+  # has_many :rdvs, foreign_key: :receiver_id, dependent: :destroy
 
   serialize :spotify_auth, JSON
 
@@ -22,9 +22,15 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable, omniauth_providers: [:spotify]
   # ----------------------------------------------------------------
+  def matches
+    Match.where('user_1_id = ? OR user_2_id = ?', id, id)
+  end
+
+  def rdvs
+    Rdv.where('asker_id = ? OR receiver_id = ?', id, id)
+  end
+
   def self.find_for_spotify_oauth(auth)
-
-
     user_params = auth.slice(:provider, :uid)
     user_params.merge! auth.info.slice(:email)
     user_params[:token] = auth.credentials.token

@@ -100,7 +100,7 @@
           </div>
         </div>
           <% end  %>
-
+        <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
       </div>
     </div>
   </div>

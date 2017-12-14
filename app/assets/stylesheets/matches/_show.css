@@ -15,6 +15,12 @@
     4vh 7vh 14vh -6vh rgba(0,0,0,0.35),
     -4vh 7vh 14vh -6vh rgba(0,0,0,0.35);
 }
+
+.date-card.btn-not{
+  padding-bottom: 2%;
+  color: red;
+}
+
 .bars {
   position: relative;
   flex-grow: 1;
@@ -267,7 +273,8 @@
   font-size: 13px;
   color: white;
   background-color: black;
-  opacity: 0.6;
+  opacity: 0.7;
+  padding: 10px;
     &:hover {
       color: white;
       background-color: black;
@@ -280,7 +287,7 @@
   font-size: 13px;
   color: white;
   background-color: #a0067f;
-  opacity: 0.7;
+  opacity: 0.6;
     &:hover {
       color: white;
       background-color: #a0067f;
