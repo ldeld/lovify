@@ -103,7 +103,7 @@
         <div class="date-btns">
           <% if @match.rdv && @match.rdv.receiver_id == current_user.id %>
             <% if @match.rdv.accepted %>
-              <p>You have a date with this person!</p>
+              <p>You already have a date with this person!</p>
               <%= link_to "Go back to your dates", rdvs_path, class: "btn btn-primary btn-accept" %>
             <% else %>
               <p>This person asked you out</p>
@@ -111,7 +111,7 @@
             <% end %>
           <% elsif @match.rdv && @match.rdv.asker_id == current_user.id %>
             <% if @match.rdv.accepted %>
-              <p>You have a date with this person!</p>
+              <p>You already have a date with this person!</p>
               <%= link_to "Go back to your dates", rdvs_path, class: "btn btn-primary btn-accept" %>
             <% else %>
               <p>You've already asked this person out</p>
