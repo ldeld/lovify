@@ -15,9 +15,9 @@ function triggerIn() {
 
   showMoreInfo.classList.add("hidden");
 
-  var x = document.createElement("div");
-  x.setAttribute("class", "fade");
-  document.querySelector(".wrapper").appendChild(x);
+  // var x = document.createElement("div");
+  // x.setAttribute("class", "fade");
+  // document.querySelector(".wrapper").appendChild(x);
 
 
   // profileCard.classList.remove( "col-xs-offset-3");
@@ -30,9 +30,9 @@ function triggerInTwo() {
 
   showMoreInfo.classList.add("hidden")
 
-/*  var x = document.createElement("div");
-  x.setAttribute("class", "fade");
-  document.querySelector(".wrapper").appendChild(x);*/
+  // var x = document.createElement("div");
+  // x.setAttribute("class", "fade");
+  // document.querySelector(".wrapper").appendChild(x);
 
 
   // profileCard.classList.remove( "col-xs-offset-3");
