@@ -9,7 +9,7 @@
           <%= profile_picture_for(User.find(user), class: "profile-picture") %>
         </div>
         <div class="matchistics">
-          <h3>Matchistics <%= @match.score.round %> <%= image_tag 'logo-seul.png', class: "match-logo" %></h3>
+          <h3>Matchistics: <%= @match.score.round %> <%= image_tag 'logo-seul.png', class: "match-logo" %></h3>
           <h4> You have <%= @match.artist_listen_in_commons.length %> artists in common </h4>
           <% unless @match.track_listen_in_commons.empty? %>
             <h4>and there's <%= @match.track_listen_in_commons.length %> tracks you both like! </h4>
