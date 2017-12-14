@@ -1,5 +1,3 @@
-
-
 <div class="container container-match-show">
  <!--  <div class="container"> -->
   <div class="card-container">
@@ -22,18 +20,17 @@
     </div>
   </div>
     <!-- This is the hidden "more info" card-->
-
   <div class="flybox-wrap" id="off">
     <div class="card" >
 <!--       <div class="animated fadeInRight">
       <div class="card scrollable hidden" id="more-info"> -->
+
       <% if user.description.present? %>
         <h4>About <%= user.first_name%>: </h4>
         <%= user.description %>
       <% end %>
 
       <h4>Top artists in common: </h4>
-
       <% if @match.artist_listen_in_commons.length < 5 %>
         <% @match.artist_listen_in_commons.each do |a_in_common| %>
           <p><%= a_in_common.artist.name %></p>
@@ -66,19 +63,10 @@
           <a href="#" id="show-full-list">Show all</a>
         <% end %>
       <% end %>
-      <div class="bars">
-        <% bars = @match.bars.first(3) %>
-        <%= simple_form_for [@match, @rdv] do |f| %>
-          <%= f.collection_radio_buttons :bar_id, bars, :id, :name  %>
-          <% if @match.asker.nil? %>
-            <%= f.submit "Ask out!", class: "btn btn-date"%>
-            <% else %>
-            <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn btn-date" %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="date-btns">
+        <div class="date-btns">
+        <%= link_to "Dates", "#", class: "btn btn-primary", id: "show-dates", onclick: "triggerInTwo()" %>
         <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not" %>
+
 
         <%# link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :patch, class: "btn btn-not" %>
         <%# if @match.asker.nil? %>
@@ -86,10 +74,78 @@
         <%# else %>
           <%# link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :patch, class: "btn btn-date" %>
         <%# end %>
+      <%# end %>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="flybox-wrap" id="off">
+    <div class="card date-card">
+      <div id="menu">
+        <div class="bars">
+          <div id="name-bar">
+            <h2>Bar name</h2>
+            <h3>Bar address</h3>
+            <%= image_tag "scroll-down.png", height: 30 %>
+          </div>
+          <div id="description-bar">
+            <p>
+              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
+            </p>
+            <%= render 'bars/show' %>
+            <% if @match.asker.nil? %>
+              <%= link_to "Ask out!", class: "btn-date"%>
+            <% else %>
+              <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn-date" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="bars">
+          <div id="name-bar">
+            <h2>Bar name</h2>
+            <h3>Bar address</h3>
+           <%= image_tag "scroll-down.png", height: 30 %>
+          </div>
+           <div id="description-bar">
+            <p>
+              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
+            </p>
+            <%= render 'bars/show' %>
+            <% if @match.asker.nil? %>
+              <%= link_to "Ask out!", class: "btn-date"%>
+            <% else %>
+              <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn-date" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="bars">
+         <div id="name-bar">
+            <h2>Bar name</h2>
+            <h3>Bar address</h3>
+           <%= image_tag "scroll-down.png", height: 30 %>
+          </div>
+          <div id="description-bar">
+            <p>
+              Niché sur le toit de la Sucrière dans le 2ème arrondissement, quartier Confluence, le Sucre est l'endroit le plus hype du moment ou l'on va pour écouter de bons sons, souvent électros.
+            </p>
+            <%= render 'bars/show', class: "show-map" %>
+            <% if @match.asker.nil? %>
+              <%= link_to "Ask out!", class: "btn-date"%>
+            <% else %>
+              <%= link_to "Ask out!", match_path(@match, {match:{receiver: @user.id}}), method: :put, class: "btn-date" %>
+            <% end %>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 
 
 
