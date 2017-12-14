@@ -4,6 +4,7 @@ h2.title {
   margin: 40px 130px;
   padding-bottom: 25px;
   color: rgb(255, 255, 255);
+  opacity:0.9;
 }
 
 .container-home{
@@ -23,7 +24,7 @@ figure.snip1477 {
   min-width: 230px;
   max-width: 357px;
   width: 100%;
-  color: #ffffff;
+  color: #eee;
   text-align: center;
   font-size: 16px;
   background-color: #000000;
@@ -54,7 +55,7 @@ figure.snip1477 .title:after {
   width: 400px;
   position: absolute;
   content: '';
-  background-color: #ffffff;
+  background-color: #eee;
 }
 figure.snip1477 .title:before {
   top: 0;
@@ -74,7 +75,7 @@ figure.snip1477 .title div:after {
   height: 300px;
   position: absolute;
   content: '';
-  background-color: #ffffff;
+  background-color: #eee;
 }
 figure.snip1477 .title div:before {
   top: 10px;
@@ -101,7 +102,7 @@ figure.snip1477 h4 {
   font-weight: 700;
   background-color: $grey-back;
   padding: 5px 10px;
-  color: white;
+  color: #eee;
 }
 figure.snip1477 figcaption {
   position: absolute;
