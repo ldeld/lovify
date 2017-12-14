@@ -6,4 +6,14 @@ class Bar < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+   def build_markers
+    bars = [self]
+    markers = Gmaps4rails.build_markers(bars) do |bar, marker|
+      marker.lat bar.latitude
+      marker.lng bar.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+    markers
+  end
 end
