@@ -6,6 +6,6 @@ function drawMap(selectorDom, markerJson) {
       markers = handler.addMarkers(markerJson);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(14);
+      handler.getMap().setZoom(15);
     });
   }
