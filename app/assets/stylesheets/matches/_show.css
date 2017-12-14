@@ -1,7 +1,133 @@
+
+#menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 46%;
+  left: 50%;
+  width: 80%;
+  height: 94vh;
+  /* note: the translateZ(0) enables hardware accel */
+  /* without it, there is a weird gap between panels */
+  transform: translate(-50%, -50%) translateZ(0);
+  overflow: hidden;
+  box-shadow:
+    4vh 7vh 14vh -6vh rgba(0,0,0,0.35),
+    -4vh 7vh 14vh -6vh rgba(0,0,0,0.35);
+}
+.bars {
+  position: relative;
+  flex-grow: 1;
+  transition: all $animation-time ease;
+  transition-delay: 0s;
+  #name-bar, #address-bar, #description-bar{
+    position: absolute;
+    transition: all $animation-time ease;
+    transition-delay: 0;
+  }
+}
+
+.show-map {
+  width: 50%;
+  height: 25%;
+  margin-left: Opx;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.bars:hover {
+   background-color: $grey-back;
+  flex-grow: 8;
+  #description-bar {
+    opacity: 1;
+    transition-delay: $animation-time;
+  }
+}
+
+/* when you click on a panel, the others are hidden */
+.bars.hidden {
+  flex-grow: 1;
+  * {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* when you click on a panel, it becomes active */
+.bars.active {
+  flex-grow: 1;
+  transition-delay: 0s;
+  #description-bar {
+    transition-delay: 0s;
+    height: 80vh;
+    margin-top: 0;
+    opacity: 1;
+  }
+  #name-bar {
+    transition-delay: 0s;
+    margin-top: 5vh;
+    font-weight: 100;
+  }
+  #address-bar {
+    font-size: 0;
+  }
+}
+
+.bars a{
+  margin-top: 5%;
+}
+
+@media (orientation: portrait) {
+  #menu {
+    border-radius: 0;
+    width: 80%;
+    height: 95vh;
+  }
+}
+
+#description-bar {
+    position: absolute;
+    left: 2vh;
+    top: 40%;
+    width: 100%;
+    margin-top: -10vh;
+    height: 25vh;
+    fill: none;
+    stroke-width: 2%;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    opacity: 0;
+    transition: all $animation-time ease;
+    transition-delay: 0s;
+    p {
+      font-size: 13px;
+      padding-right: 6px;
+      padding-left: 4px;
+      padding-bottom: 5%;
+    }
+  }
+
+
+#name-bar{
+  padding-bottom: 1%;
+  width: 100%;
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.7) 50%),url("https://www.lyonresto.com/contenu/bandeau/musique_live.jpg");
+  h2 {
+    margin-top: 4%;
+  }
+}
+
+
+#name-bar h3{
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+
 .container-match-show {
   position: relative;
   overflow: hidden;
-  height: 86vh;
+  height: 95vh;
   width: 1183px;
   background: $grey-back;
   display: flex;
@@ -79,7 +205,7 @@
   background-color: $grey-card;
   padding: 4px;
   border-radius: 5px;
-  height: 83vh;
+  height: 95vh;
   text-align: center;
   box-shadow: 0 0 8px rgba(37, 37, 37, 0.4);
   p {
