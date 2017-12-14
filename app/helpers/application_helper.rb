@@ -19,4 +19,9 @@ module ApplicationHelper
     end
     return count
   end
+
+  def request_count
+    requests = Rdv.where(receiver_id: current_user.id).where(accepted: false)
+    requests.count
+  end
 end

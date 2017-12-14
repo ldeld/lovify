@@ -12,13 +12,27 @@
       </div>
     <div class="border"></div>
     <ul class="list-unstyled">
-      <li><%= link_to "Profile", "/profile", class: "sidebar-link" %></li>
-        <div class="border-light"></div>
-      <li><%= link_to "Start matching", "/next-match", class: "sidebar-link" %></li>
-        <div class="border-light"></div>
-      <li><%= link_to "Messages", conversations_path, class: "sidebar-link" %> <% unless unread_messages_count == 0  %>(<%= unread_messages_count %>)</li><% end %>
-        <div class="border-light"></div>
-      <li><%= link_to "Dates", rdvs_path, class: "sidebar-link" %></li>
+      <li>
+        <%= link_to "Profile", "/profile", class: "sidebar-link" %>
+      </li>
+      <div class="border-light"></div>
+      <li>
+        <%= link_to "Start matching", "/next-match", class: "sidebar-link" %>
+      </li>
+      <div class="border-light"></div>
+      <li>
+        <%= link_to "Messages", conversations_path, class: "sidebar-link" %>
+        <% unless unread_messages_count == 0  %>
+          (<%= unread_messages_count %>)
+        <% end %>
+      </li>
+      <div class="border-light"></div>
+      <li>
+        <%= link_to "Dates", rdvs_path, class: "sidebar-link" %>
+        <% unless request_count == 0  %>
+          (<%= request_count %>)
+        <% end %>
+      </li>
       <div class="border-light"></div>
       <li>
         <div class="sidebar-link"><%= link_to destroy_user_session_path, method: :delete do %>
