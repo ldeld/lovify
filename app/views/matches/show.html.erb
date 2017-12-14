@@ -101,8 +101,26 @@
             <% end %>
           <% end %>
         <div class="date-btns">
-        <%= link_to "Dates", "#", class: "btn btn-primary", id: "show-dates", onclick: "triggerInTwo()" %>
-        <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not-first" %>
+          <% if @match.rdv && @match.rdv.receiver_id == current_user.id %>
+            <% if @match.rdv.accepted %>
+              <p>You already have a date with this person!</p>
+              <%= link_to "Go back to your dates", rdvs_path, class: "btn btn-primary btn-accept" %>
+            <% else %>
+              <p>This person asked you out</p>
+              <%= link_to "Accept", accept_rdv_path(@match.rdv), class: "btn btn-primary btn-accept" %>
+            <% end %>
+          <% elsif @match.rdv && @match.rdv.asker_id == current_user.id %>
+            <% if @match.rdv.accepted %>
+              <p>You already have a date with this person!</p>
+              <%= link_to "Go back to your dates", rdvs_path, class: "btn btn-primary btn-accept" %>
+            <% else %>
+              <p>You've already asked this person out</p>
+              <p>You'll have to wait for their reply</p>
+            <% end %>
+          <% else %>
+            <%= link_to "Pick a bar", "#", class: "btn btn-primary", id: "show-dates", onclick: "triggerInTwo()" %>
+            <%= link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :put, class: "btn btn-not-first" %>
+          <% end %>
 
 
         <%# link_to "Not interested", match_path(@match, {match:{hide: true}}), method: :patch, class: "btn btn-not" %>
