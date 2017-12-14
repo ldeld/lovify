@@ -17,7 +17,11 @@
           <%= link_to "", conversation_messages_path(conversation), class: "message-link" %>
             <%= profile_picture_for(User.find(recipient), height: 80, width: 80, class: "message-avatar") %>
             <div class="message-li-name">
-              <h3><%= recipient.first_name %></h3>
+              <h3><%= recipient.first_name %>
+                  <% unless unread_conversation_messages(conversation) == 0 %>
+                    (<%= unread_conversation_messages(conversation) %>)
+                    <% end %>
+              </h3>
               <p><%= conversation.messages.last.message_time if conversation.messages.last %></p>
             </div>
             <div class="message-li-body">
