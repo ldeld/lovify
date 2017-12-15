@@ -30,10 +30,10 @@
     </div>
     <div class="row">
       <div class="list-artists">
-        <%current_user.artists.first(6).each do |artist| %>
+        <%current_user.artist_listens.first(6).each do |artist| %>
           <div class="col-xs-6 col-sm-4">
             <div class="card-artists">
-              <p class="truncate"><%= artist.name %></p>
+              <p class="truncate"><%= artist.artist.name %></p>
             </div>
           </div>
         <% end %>
@@ -46,10 +46,10 @@
     </div>
     <div class="row" >
       <div class="list-artists">
-        <%current_user.tracks.first(10).each do |track| %>
+        <%current_user.track_listens.first(10).each do |track| %>
           <div class="col-xs-6 col-sm-6">
             <div class="card-artists">
-              <p class="truncate"><%= track.name %></p>
+              <p class="truncate"><%= track.track.name %></p>
             </div>
           </div>
         <% end %>
