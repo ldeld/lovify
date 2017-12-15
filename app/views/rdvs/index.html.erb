@@ -3,7 +3,14 @@
   <div class="tab-container">
       <div class="tab-bar">
         <a href="#Requests" class="tab is-active" data-tab="tab-1">Matches</a>
-        <a href="#Matches" class="tab" data-tab="tab-2">Dates</a>
+        <a href="#Matches" class="tab" data-tab="tab-2">
+          Dates
+          <% unless @rdvs_done.count.zero? %>
+            <span class="number-notif">
+              <%= @rdvs_done.count %>
+            </span>
+          <% end %>
+        </a>
       </div>
     </div>
     <div class="tab-content is-active" id="tab-1">
