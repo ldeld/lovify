@@ -1,3 +1,55 @@
+.blur-in {
+    -webkit-animation: blur 1s forwards;
+    -moz-animation: blur 1s forwards;
+    -o-animation: blur 1s forwards;
+    animation: blur 1s forwards;
+}
+
+.blur-out {
+    -webkit-animation: blur-out 1s forwards;
+    -moz-animation: blur-out 1s forwards;
+    -o-animation: blur-out 1s forwards;
+    animation: blur-out 1s forwards;
+}
+
+@keyframes blur {
+    0% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+
+    100% {
+        -webkit-filter: blur(2px);
+        -moz-filter: blur(2px);
+        -o-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(2px);
+    }
+}
+
+@-webkit-keyframes blur-out {
+    0% {
+        -webkit-filter: blur(2px);
+        -moz-filter: blur(2px);
+        -o-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(2px);
+    }
+
+    100% {
+        -webkit-filter: blur(0px);
+        -moz-filter: blur(0px);
+        -o-filter: blur(0px);
+        -ms-filter: blur(0px);
+        filter: blur(0px);
+    }
+}
+
+
+
 .linktbar{
   p{
   padding-top: 12px;
@@ -20,23 +72,42 @@ span {
   cursor:pointer;
 }
 
+
 .pop-up-text {
   width: 50%;
-  height: 50%;
+  height: 70%;
   position: relative;
   left: 45%;
   background-color: $grey-card;
 }
 
-.display-bar h3{
+.display-bar {
+  box-shadow: 0px 5px 7px rgba(0,0,0,.5);
+  h3{
   font-size: 16px;
   text-align: center;
 }
-
-.display-bar p{
+ p{
   font-size: 14px;
 }
+}
+
 
 .info-bar{
-  padding-left: 20px;
+  padding-left: 15px;
+  padding-bottom: 2%;
+  margin-top: 20px;
+}
+
+.pop-up{
+    width: 900px;
+    z-index: 13;
+    top: -5%;
+    right: 25%;
+    position: absolute;
+}
+
+#map-bar{
+  width: 100%;
+  height: 1vh;
 }

@@ -9,7 +9,9 @@
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     // drawMap(selectorDom, markerJson)
-    drawMap("<%= dom_map_id %>", <%= raw markers.to_json %>);
+    $(function() {
+      drawMap("<%= dom_map_id %>", <%= raw markers.to_json %>);
+    });
   <% end %>
 <% end %>
 

@@ -179,7 +179,7 @@
   transform:  translateX(0);
 }
 
-.fade {
+/*.fade {
   position: absolute;
   top: 0;
   left: 0;
@@ -187,7 +187,7 @@
   height: 0vh;
   background: rgba(0,0,0,0.7);
   z-index: 1;
-}
+}*/
 
 .animated {
   animation-duration: 0.6s;

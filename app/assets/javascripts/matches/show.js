@@ -24,18 +24,6 @@ function triggerIn() {
 
 };
 
-function triggerIn() {
-  bar.setAttribute("class", "card animated slideOutLeft");
-  document.querySelector("#off").setAttribute("id", "on");
-
-  // var x = document.createElement("div");
-  // x.setAttribute("class", "fade");
-  // document.querySelector(".wrapper").appendChild(x);
-
-
-  // profileCard.classList.remove( "col-xs-offset-3");
-
-};
 
 
 function triggerInTwo() {
