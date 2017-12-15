@@ -23,14 +23,18 @@
       <li>
         <%= link_to "Messages", conversations_path, class: "sidebar-link" %>
         <% unless unread_messages_count == 0  %>
-          (<%= unread_messages_count %>)
+          <span class="number-notif">
+            <%= unread_messages_count %>
+          </span>
         <% end %>
       </li>
       <div class="border-light"></div>
       <li>
         <%= link_to "Dates", rdvs_path, class: "sidebar-link" %>
         <% unless request_count == 0  %>
-          (<%= request_count %>)
+          <span class="number-notif">
+            <%= request_count %>
+          </span>
         <% end %>
       </li>
       <div class="border-light"></div>
