@@ -2,10 +2,12 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid rgba(220,224,244,0.4);
-  background-color: $white-font;
+
+  background-color: $grey-card;
+  border-right: rgba(155, 55, 140, 0.5) 4px solid;
   border-radius: 5px;
   position: relative;
+  margin-bottom:20px;
 }
 .message-li:last-child {
   border-bottom: none;
@@ -14,8 +16,8 @@
   flex-grow: 1;
 }
 .message-li-name {
-  padding-left: 10px;
-  min-width: 100px;
+  padding-left: 40px;
+  min-width: 120px;
 }
 .message-li-name h3 {
   font-size: 20px;
@@ -40,13 +42,9 @@
   font-weight: lighter;
   opacity: 0.6;
   margin-top: 5px;
-  color: #212121;
+  color: #999;
 }
-.message-li-body {
-  padding-left: 10px;
-  font-size: 13px;
-  color: rgba(0,0,0,0.7);
-}
+
 .message-li-body {
   padding-left: 20px;
   color: rgba(0,0,0,0.8);
@@ -56,9 +54,15 @@
   margin: 6px 0;
   font-size: 14px;
   font-weight: bold;
+  color:#999;
 }
 .message-li-status {
   font-size: 14px;
   font-weight: bold;
 }
 
+.conv-h3 h3{
+  font-weight:lighter;
+  color:#bbb;
+  padding-bottom:10px;
+}
