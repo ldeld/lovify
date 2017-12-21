@@ -13,6 +13,8 @@ gem 'rspotify'
 gem "geocoder"
 gem "coffee-rails"
 gem "gmaps4rails"
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
