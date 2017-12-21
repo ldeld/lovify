@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   get '/users/auth/spotify/callback', to: 'users#spotify'
   post '/users/auth/spotify/callback', to: 'users#spotify'
 
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   get '/matches/no_matches', to: 'matches#no_matches'
   resources :matches do
   resources :rdvs, only: [:create]
