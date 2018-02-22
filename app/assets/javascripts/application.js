@@ -7,3 +7,4 @@
 
 //= require matches/show
 //= require rdvs/index
+//= require messages/index
