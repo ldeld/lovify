@@ -14,14 +14,6 @@ function triggerIn() {
   document.querySelector("#off").setAttribute("id", "on");
 
   showMoreInfo.classList.add("hidden");
-
-  // var x = document.createElement("div");
-  // x.setAttribute("class", "fade");
-  // document.querySelector(".wrapper").appendChild(x);
-
-
-  // profileCard.classList.remove( "col-xs-offset-3");
-
 };
 
 function triggerInTwo() {
@@ -29,14 +21,6 @@ function triggerInTwo() {
   document.querySelector("#off").setAttribute("id", "on");
 
   showMoreInfo.classList.add("hidden")
-
-  // var x = document.createElement("div");
-  // x.setAttribute("class", "fade");
-  // document.querySelector(".wrapper").appendChild(x);
-
-
-  // profileCard.classList.remove( "col-xs-offset-3");
-
 };
 
 
@@ -46,30 +30,3 @@ $('.bars').click(function() {
     var index = $(this).index();
   }
 });
-
-
-
-/*if (showFullList) {
-  showFullList.addEventListener("click", function(event) {
-    event.preventDefault();
-    hiddenArtists = document.getElementById("artist-list")
-    hiddenArtists.classList.toggle("hidden");
-    hiddenArtists.classList.toggle("show-content");
-
-    hiddenTracks = document.getElementById("track-list")
-    hiddenTracks.classList.toggle("hidden");
-    hiddenTracks.classList.toggle("show-content");
-
-
-    showFullList.classList.add("hidden");
-  });
-};
-*/
-// if (showMoreInfo) {
-//   showMoreInfo.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     infoCard.classList.remove("hidden");
-//     profileCard.classList.remove("col-xs-offset-3");
-//     showMoreInfo.classList.add("hidden")
-//   });
-// };

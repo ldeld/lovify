@@ -3,7 +3,7 @@
      <%= link_to 'Show Previous', '?m=all' %>
   <% end %>
 
-  <div class="ui segment">
+  <div class="ui segment" id="message-list">
     <% if @messages.first.id.nil? %>
       <p>There are no messages between you yet. Don't be shy, say hello!</p>
     <% end %>
@@ -24,17 +24,5 @@
     <% end %>
   </div>
 
-  <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-    <div class="field">
-      <%= f.text_area :body, class: "form-control message-area" %>
-    </div>
-      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-    <div class="message-btns">
-      <%= f.submit "Send message", class: "btn btn-primary" %>
-      <p>or</p>
-      <%= link_to "Back to messages", conversations_path %>
-    </div>
-    <div>
-    </div>
-  <% end %>
+  <%= render 'form', conversation: @conversation, message: @message %>
 </div>

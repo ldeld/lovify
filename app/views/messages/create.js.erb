@@ -1,0 +1,31 @@
+const refreshMessageField = (innerHTML) => {
+  console.log('refreshing');
+  const messageForm = document.getElementById('new_message');
+  messageForm.innerHTML = innerHTML;
+}
+
+const addMessage = (messageHTML) => {
+  const messageList = document.getElementById('message-list');
+  messageList.insertAdjacentHTML('beforeend', messageHTML);
+}
+
+const buildMessageHTML = (body, userName) => {
+  html = `<div class='item'>
+          <div class="content">
+            <div class="header">${userName}</div>
+            <div class="list">
+              <div class="item">
+                <p> > ${body} </p>
+              </div>
+            </div>
+          </div>
+        </div>`;
+  return html;
+}
+
+<% if @message.errors.any? %>
+  refreshForm('<%= j render "form", conversation: @conversation, message: @message %>');
+<% else %>
+  addMessage(buildMessageHTML("<%= @message.body %>", "<%= current_user.first_name %>"));
+  refreshMessageField('<%= j render "form", conversation: @conversation, message: @conversation.messages.new %>');
+<% end %>
